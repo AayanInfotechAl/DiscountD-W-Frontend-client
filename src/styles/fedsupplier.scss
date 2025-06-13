@@ -1,0 +1,30 @@
+.fedsupplier-container{  
+  .k2t-title-bar {
+    background-color: #252525;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    position: relative;
+    }
+    .links li {
+      display: inline-block;
+      color: #b1adad;
+  }
+
+  .pdf-image-fluid{
+    width: 100%;
+    max-width: 70%,   
+  }
+  @media (max-width: 768px) {
+    .pdf-image-fluid {
+      max-width: 100%;
+    }
+  }
+ 
+  .contact-container{
+     @media (max-width: 768px) {
+      padding:10px
+    }
+  }
+}
+

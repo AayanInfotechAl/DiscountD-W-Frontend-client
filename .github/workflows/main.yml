@@ -1,0 +1,63 @@
+name: Push-to-EC2
+
+on:
+  push:
+    branches:
+      - build
+
+jobs:
+  deploy:
+    name: Deploy React App to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy repo to EC2
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: /home/ubuntu/alan-ecommerce
+
+      - name: SSH into EC2 and build + deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+
+            echo "📁 Changing to project directory..."
+            cd /home/ubuntu/alan-ecommerce
+
+            echo "🔧 Installing Node.js via NVM..."
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+            nvm install 20
+            nvm use 20
+
+            echo "📦 Installing dependencies..."
+            npm install
+
+            echo "⚙️ Building project..."
+            npm run build
+
+            echo "🧹 Cleaning old /var/www/html/web content..."
+            sudo rm -rf /var/www/html/web/*
+
+            echo "📦 Copying new build to /var/www/html/web..."
+            sudo cp -r dist/* /var/www/html/web/
+
+            echo "🔄 Restarting NGINX..."
+            sudo systemctl restart nginx
+
+            echo "✅ Deployment complete!"
+

@@ -1,0 +1,51 @@
+{
+    "tax_rebate": {
+      "title": "Get Tax Rebate!",
+      "description": "Most of Discount Door and Window products qualify for this tax rebate. There are different requirements depending on the climate zone. If you are uncertain if one of our products qualifies for the tax rebate, please contact us and we will verify it for you.",
+      "details": {
+        "tax_rebate_info": {
+          "rebate": "10% of cost of the home improvement, up to a maximum of $500. Windows are capped at $200.",
+          "expiration": "December 31, 2011",
+          "eligibility": "Must be on an existing home & your principal residence. New construction and rentals don't qualify. Must be placed in service in 2011.",
+          "limitations": "Tax credit does NOT include installation costs.",
+          "tax_form": "You need to file the 2011 IRS Form 5695 and submit it with your 2011 taxes (by April 15, 2012). On the 1040 form, the residential energy tax credit (from Form 5695) is claimed on line 52.",
+          "receipt": "Save your receipts and the Manufacturer's Certification Statement for your records.",
+          "u_factor": "Windows must have at least 0.35 U-Factor in Southern California. Other locations depend on climate zone. Door U-Factor depends on how much glass is used."
+        },
+        "source": "Energy Star",
+        "links": [
+          "http://www.energystar.gov/index.cfm?c=tax_credits.tx_index",
+          "http://www.energystar.gov/index.cfm?c=windows_doors.pr_anat_window"
+        ]
+      }
+    },
+    "diy_install_guides": {
+      "title": "DIY Install Guides",
+      "description": "Door and Window replacement is a manageable job that does not require a lot of previous knowledge or experience. There are some fundamental aspects you need to know about that we will cover in these DIY guides. Other than that, as long as you feel comfortable working with your hands, and can dedicate a day to the project, then DIY is a great way to save additional money.",
+      "benefits": [
+        "Learn the job: This knowledge can help with future repairs and maintenance.",
+        "You save money: You ensure the job is done the way you want it to be done.",
+        "Adjustments: Make adjustments based on your preference.",
+        "Rewarding: You get a rewarding feeling after completing a job successfully."
+      ],
+      "note": "Here at Discount Door and Window, we want to support you in your door and window replacement projects. This DIY section is dedicated to providing you with the information you need to get the job done. If you still have questions about replacing your door or window, you can contact us and we will try to assist you further.",
+      "related_articles": {
+        "diy_window_guides": [
+          "How to Install Vinyl Window",
+          "How to Apply Caulk to a Window",
+          "Replace a Window that is Inset, or Not Flush with the Wall",
+          "How to Install a Green House Window",
+          "How to Get Accurate Window Measurements"
+        ],
+        "diy_door_guides": [
+          "How to Remove an Exterior Door",
+          "How to Paint Smooth Skin Door",
+          "How to Paint Fiberglass Door",
+          "How to Paint Door Jambs",
+          "How to Install an Inswing Exterior Entry Door",
+          "How to Install a Dentil Shelf"
+        ]
+      }
+    }
+  }
+  

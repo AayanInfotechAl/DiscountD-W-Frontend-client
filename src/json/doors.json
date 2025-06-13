@@ -1,0 +1,899 @@
+{
+  "articles": [
+    {
+      "title": "More About Doors",
+      "content": "The right door is key to the appearance and performance of your home. Look for products that reflect your style as well as your practical needs. With Discount Door and Window you can choose from many energy efficient door options, including patio doors and exterior doors like Vinyl Doors, Fiberglass Doors, and Solid Wood Doors. Discount Door and Window is the place to go for discount doors in San Diego."
+    },
+    {
+      "title": "Step Into Luxury With Doors That Add An Extra Touch Of Elegance",
+      "content": "When it comes to elevating the style and sophistication of your home, there's no better place to start than with your doors and door replacement. We specialize in providing high-quality doors that provide security and functionality and add an extra touch of elegance and luxury to your space. From stunning wooden designs to sleek and modern options, our collection of doors offers something for every taste and style."
+    },
+    {
+      "title": "Welcome Your Guests In Style With Our Inviting Doors",
+      "content": "Whether you're looking to enhance your home's curb appeal or add a touch of luxury to your interiors, our doors are the perfect choice for those who demand both beauty and functionality. Constitute scrolling the best door designs before you plan for exterior door installation."
+    },
+    {
+      "title": "Wood Entry Doors",
+      "content": "Wood entry doors are durable and strong and provide natural insulation, making them energy efficient. They also have a warm and inviting appearance and can add value to a home."
+    },
+    {
+      "title": "Fiberglass Entry Doors",
+      "content": "Fiberglass entry doors are a popular and modern option for front doors. They are made of composite materials that are durable, weather-resistant, and energy-efficient. Vinyl Sliding Patio Doors Vinyl sliding patio doors are a practical and cost-effective option for connecting indoor and outdoor living spaces. They are made of PVC (polyvinyl chloride) and are low-maintenance, weather-resistant, and energy-efficient"
+    },
+    {
+      "title": "Fiberglass French Doors",
+      "content": "If you are looking for door contractors in San Diego for a modern look, these doors are perfect for you. Fiberglass French doors are a popular and modern option for interior or exterior doors. They are made of composite materials that are durable, weather-resistant, and energy-efficient"
+    },
+    {
+      "title": "French Wood Doors",
+      "content": "French wood doors are a classic and traditional option for interior or exterior doors. They also have a warm and inviting appearance and can add value to a home."
+    },
+    {
+      "title": "Vinyl Swinging French Door",
+      "content": "These doors are easy to operate and provide excellent ventilation. Vinyl swinging French doors are ideal for creating an elegant and modern look for a home."
+    },
+    {
+      "title": "Why Get The Best Doors With Us?",
+      "content": "At Discount Door & Window, we are committed to providing our customers with high-quality doors and windows at affordable prices. We understand the importance of having durable and efficient doors and windows in your home or business, which is why we offer a wide selection of products that are made with top-of-the-line materials and advanced manufacturing techniques. Our team of experts is dedicated to helping you find and buy doors in San Diego, perfect doors and windows that meet your specific needs and preferences."
+    },
+    {
+      "title": "Transform Your Home With Our Doors!",
+      "content": "When you choose to buy doors and windows from Discount Door & Window, you can trust that you are getting the best value for your money and that your investment will provide you with years of reliable performance and aesthetic appeal. So, connect with us immediately if you are finding exterior door contractors in San Diego and want to get products at affordable prices."
+    }
+  ],
+  "tax_rebate": {
+    "title": "Get Tax Rebate!",
+    "description": "Most of Discount Door and Window products qualify for this tax rebate. There are different requirements depending on the climate zone. If you are uncertain if one of our products qualifies for the tax rebate, please contact us and we will verify it for you.",
+    "details": {
+      "tax_rebate_info": {
+        "rebate": "Tax Rebate: 10% of cost of the home improvement, up to a maximum of $500. Windows are capped at $200.",
+        "expiration": "Expiration: December 31, 2011",
+        "eligibility": "Eligibility: Must be on an existing home & your principal residence. New construction and rentals don’t qualify. Must be placed in service in 2011.",
+        "limitations": "Limitations: Tax Credit does NOT include installation costs.",
+        "tax_form": "Tax Form: You need to file the 2011 IRS Form 5695 and submit it with your 2011 taxes (by April 15, 2012). On the 1040 form , the residential energy tax credit (from Form 5695) is claimed on line 52.",
+        "receipt": "Receipt: Save your receipts and the Manufacturer's Certification Statement for your records.",
+        "u_factor": "U-Factor: Windows must have at least 0.35 U-Factor in Southern California. Other locations depend on climate zone. Door U-factor depend on how much glass is used."
+      },
+      "source": "Energy Star",
+      "links": [
+        "http://www.energystar.gov/index.cfm?c=tax_credits.tx_index",
+        "U-Factor glass requirements for windows and doors:",
+        "http://www.energystar.gov/index.cfm?c=windows_doors.pr_anat_window"
+      ]
+    }
+  },
+  "diy_install_guides": {
+    "title": "DIY Install Guides",
+    "description_guide": "Door and Window replacement is a manageable job that does not require a lot of previous knowledge or experience. There are some fundamental aspects you need to know about that we will cover in these DIY guides. Other than that as long as you feel comfortable working with your hands, and can dedicate a day to the project, then DIY is a great way to save additional money.",
+    "description_guide1": "There are some other benefits to doing a door or window replacement yourself. First of all, you learn a lot. This knowledge can help with future repairs and maintenance. Secondly, you ensure the job is done the way you want it to be done. You can make adjustments based on your preference. Last but not least, you get a rewarding feeling after completing a job successfully. Here at Discount Door and Window, we want to support you in your door and window replacement projects. This DIY section is dedicated to providing you with the information you need to get the job done. If you still have questions about replacing your door or window, you can contact us and we will try to assist you further.",
+    "benefits": [
+      "Learn the job: This knowledge can help with future repairs and maintenance.",
+      "You save money: You ensure the job is done the way you want it to be done.",
+      "Adjustments: Make adjustments based on your preference.",
+      "Rewarding: You get a rewarding feeling after completing a job successfully."
+    ],
+    "note": "Here at Discount Door and Window, we want to support you in your door and window replacement projects. This DIY section is dedicated to providing you with the information you need to get the job done. If you still have questions about replacing your door or window, you can contact us and we will try to assist you further.",
+    "related_articles": {
+      "diy_window_guides": [
+        {
+          "title": "How to Install Vinyl Window",
+          "path": "/diy/vinylwindow"
+        },
+        {
+          "title": "How to Apply Caulk to a Window",
+          "path": "/diy/apply-caulk-window"
+        },
+        {
+          "title": "Replace a Window that is Inset, or Not Flush with the Wall",
+          "path": "/diy/replace-inset-window"
+        },
+        {
+          "title": "How to Install a Green House Window",
+          "path": "/diy/green-house-window"
+        },
+        {
+          "title": "How to Get Accurate Window Measurements",
+          "path": "/guide/accurate-window-measurements"
+        }
+      ],
+      "diy_door_guides": [
+        {
+          "title": "How to Remove an Exterior Door",
+          "path": "/diy/remove-exterior-door"
+        },
+        {
+          "title": "How to Paint Smooth Skin Door",
+          "path": "/diy/skin-door"
+        },
+        {
+          "title": "How to Paint Fiberglass Door",
+          "path": "/diy/paint-fiberglass-door"
+        },
+        {
+          "title": "How to Paint Door Jambs",
+          "path": "/diy/paint-door-jambs"
+        },
+        {
+          "title": "How to Install a Dentil Shelf",
+          "path": "/diy/install-dentil-shelf"
+        },
+        {
+          "title": "How to Get Accurate Door Measurements",
+          "path": "/guide/accurate-door-measurements"
+        },
+        {
+          "title": "How to use Shims on an entry door",
+          "path": "/diy/install-inswing-entry-door"
+        }
+      ]
+    }
+  },
+  "whats_right_for_me": {
+    "title": "What's Right For Me",
+    "description": "Here at Discount Door and Window we offer products that are energy efficient, durable, and cost effective. If you are not sure what type of door or window is the best fit, learn more about the advantages of Vinyl, Fiberglass, or Wood.",
+    "benefits": [
+      "The best way to hire a pre-approved installer is to purchase the service through our shopping cart when you order your doors and windows. This will ensure an installer will schedule an in-home consultation with you, discuss your options, confirm your measurements, and cover everything required for the job to turn out just the way you want it to. To get started you can click here to hire an installer."
+    ],
+    "related_articles": {
+      "diy_window_guides": [
+        {
+          "title": "Which caulk should I use?",
+          "path": "/guide/caulk"
+        },
+        {
+          "title": "When to use Tempered Safety Glass",
+          "path": "/guide/tempered-glass"
+        },
+        {
+          "title": "Importance of Energy Efficiency",
+          "path": "/guide/energy-efficiency"
+        },
+        {
+          "title": "Door Jambs Explained",
+          "path": "/guide/door-jambs"
+        },
+        {
+          "title": "10 Things to Know Before You Buy Replacement Windows",
+          "path": "/guide/replacement-windows"
+        },
+        {
+          "title": "What are the advantages of our Vinyl products?",
+          "path": "/guide/vinyl-products"
+        },
+        {
+          "title": "Fiberglass Door Versus Wood Door?",
+          "path": "/guide/fiberglass-vs-wood"
+        },
+        {
+          "title": "Slab Door Vs. Pre Hung Door",
+          "path": "/guide/slab-vs-pre-hung"
+        },
+        {
+          "title": "Request an In-Home Estimate - Discount Door & Window",
+          "path": "/guide/fiberglass-info"
+        },
+        {
+          "title": "Why Replace Your Door or Windows?",
+          "path": "/guide/replace-door-windows"
+        }
+      ]
+    }
+  },
+  "accurate_measurements": {
+    "title": "How to Get Accurate Measurements",
+    "description": "Getting an accurate measurement on your old door and windows is the most important step in purchasing a new product. The new door or window should be 3/8ths of an inch smaller than the rough opening it will be going into. That way there is room to make adjustment, before sealing it into place.",
+    "related_articles": {
+      "diy_window_guides": [
+        {
+          "title": "Learn how to get accurate Window Measurements",
+          "path": "/guide/accurate-window-measurements"
+        },
+        {
+          "title": "Learn how to get accurate Door Measurements",
+          "path": "/guide/accurate-door-measurements"
+        }
+      ]
+    }
+  },
+  "pre_approved_installer": {
+    "title": "Hire a Pre-Approved Installer",
+    "description": "The installers we have approved are experienced at removing existing doors and windows, and installing new ones to fit perfectly. They have worked with a wide variety of buildings and unique situations. They will ensure your new window or doors are weatherproof, level, and secure. The best way to hire a pre-approved installer is to purchase the service through our shopping cart when you order your doors and windows.",
+    "description1": [
+      "This will ensure an installer will schedule an in-home consultation with you, discuss your options, confirm your measurements, and cover everything required for the job to turn out just the way you want it to. To get started you can click here to hire an installer."
+    ],
+    "related_articles": {
+      "diy_window_guides": [
+        {
+          "title": "Labor Warranty",
+          "path": "/guide/approvedInstallerDoorWindow"
+        },
+        {
+          "title": "Hire a Pre-Approved Installer for an in-home consultation",
+          "path": "/guide/labour-estimate"
+        },
+        {
+          "title": "5 Questions You Should Ask an Installer",
+          "path": "/guide/question-installer"
+        },
+        {
+          "title": "Apply to Become a Pre-Approved Installer",
+          "path": "/guide/apply-installer"
+        }
+      ]
+    }
+  },
+  "accurate_window_measurements": {
+    "title": "How to Get Accurate Window Measurements",
+    "description": "To find out what size window you should order from our site, you must make an accurate measurement. Your new window will go over the existing frame, so you will be measuring the distance between the inner most parts of the frame. For detailed instructions follow these steps, or watch the tutorial video below.",
+    "related_articles": {
+      "window_measurements": [
+        "Learn how to get accurate Window Measurements",
+        "Learn how to get accurate Door Measurements"
+      ]
+    }
+  },
+  "accurate_door_measurements": {
+    "title": "How to Get Accurate Door Measurements - Discount Door & Window"
+  },
+  "caulk_guides": {
+    "title": "Which caulk should I use?",
+    "introduction": "We offer 2 different types of caulk that are the best for sealing windows and doors: Siliconized Acrylic Sealant, and Polyurethane Sealant. Both are durable and energy efficient and can be used exclusively, but Siliconized Acrylic is recommended for interior caulking, and Polyurethane is recommended for exterior caulking. This is mainly because Polyurethane is toxic.",
+    "recommendation": "If you are doing a window installation, we recommend you purchase 1 tube of Polyurethane Caulk, and 1 tube of Siliconized Acrylic Caulk. Use the Polyurethane on the outside of the window, and the Siliconized Acrylic on the inside of the window. You may also need some Expanding Foam Sealant, and Vinyl Trim Strips to fill in and cover up any gaps. This is explained in the Do-It-Yourself article about how to apply caulk.",
+    "sealant_types": [
+      {
+        "type": "Siliconized Acrylic Sealant",
+        "description": [
+          "Siliconized acrylic caulk is a little less durable than polyurethane, but it is easier to work with since it cleans up with water, and better tolerated by those with chemical sensitivities. Siliconized acrylic caulk can be painted over after is applied. The added silicone makes it more water resistant and flexible. It is the best choice for interior caulking, but can also be used on exterior caulking.",
+          "The Siliconized acrylic caulk we recommend is called RCS20, made by GE: Product page for Siliconized Acrylic Sealant RCS20."
+        ],
+        "image": "src/assets/whatsrightforme1.png"
+      },
+      {
+        "type": "Polyurethane Sealant",
+        "description": [
+          "Polyurethane caulks are paintable, flexible, and weather resistant. They have superior bonding ability, to the extent that they can be used as an adhesive in certain applications. Because of this, polyurethane caulk works well in joints between dissimilar materials.",
+          "The downside to this type of caulk is that it is somewhat messy to work with, as it is stringy and sticks to your hands and clothes. It must be cleaned up with mineral spirits, as it is not water soluble. It can also be somewhat toxic, so it should not be applied around intake ducts or ventilation grilles, where siliconized acrylic latex caulk should be used.",
+          "The Polyurethane Sealant we recommend is SM7108 Permathane made by Schnee-Morehead."
+        ],
+        "image": "src/assets/whatsrightforme1.png"
+      }
+    ]
+  },
+  "approvedInstallerDoorWindow": {
+    "title": "Hire a Pre-Approved Installer - Discount Door & Window",
+    "description": "All of our pre-approved installers are licensed and experienced contractors. The installer will match the manufacturer's warranty on the products installed. This means that if a door has a lifetime warranty, then the labor for installing the door will also have a lifetime warranty. That way if there is an issue with the door that was caused by the installer, it will be repaired by the installer. If there is an issue with the door caused by a defect in the door, then the manufacturer will repair or replace the door.",
+    "description1": "All Doors and Windows we sell come with their full-factory manufacturer warranty. Please read the manufacturer warranty thoroughly and follow all requirements. Failing to follow manufacturer's requirements and instruction will void your warranty.",
+    "related_articles": {
+      "diy_window_guides": [
+        {
+          "prefix": "Vinyl Windows and Patio Doors have a",
+          "underlinedText": "Limited Lifetime Warranty.",
+          "url": "/https://discountdw.com/p-6058-warranty-on-windows-and-vinyl-doors.html"
+        },
+        {
+          "prefix": "Wood Doors have a",
+          "underlinedText": "1 Year Warranty.",
+          "url": "/https://discountdw.com/files/documents/aaw-warranty.pdf"
+        },
+        {
+          "prefix": "Wood grain Fiberglass Doors have a",
+          "underlinedText": "Limited Lifetime Warranty.",
+          "url": "/https://discountdw.com/p-6058-warranty-on-windows-and-vinyl-doors.html"
+        },
+        {
+          "prefix": "Smooth skin fiberglass doors have a",
+          "underlinedText": "25 year warranty.",
+          "url": "/https://discountdw.com/files/documents/plastpro_smoothskin_warranty_0824.pdf"
+        }
+      ]
+    }
+  },
+  "vinyl_window": {
+    "title": "Vinyl Window Installation",
+    "description_guide": "First measure your old window. If you need help on making proper measurements, please click here. Next, follow the instructions and video tutorials below to learn how to install your new window.",
+    "related_articles": {
+      "diy_window_guides": [
+        "Polyurethane caulking for exterior",
+        "Silicon acrylic caulking for interior",
+        "Minimal expansion foam for insulation",
+        "Trim strip to cover up the gap in the interior",
+        "Caulking gun to dispense the sealant",
+        "Four 2 1/2\" or 3\" screws.",
+        "Drill to make holes for the screws",
+        "Rag to clean of the excess caulking",
+        "Gloves to protect from caulking",
+        "Shims to adjust the window placement"
+      ],
+      "diy_door_guides": [
+        "Step ladder",
+        "Spirit level",
+        "Glass cleaner"
+      ]
+    },
+    "installation_steps": [
+      {
+        "step": 1,
+        "title": "Remove old aluminum window panes and vertical meeting rail",
+        "details": [
+          "To remove the sliding pane, open it all the way, then shift it upwards and rotate the bottom towards you.",
+          "Remove any screws that may be holding it in place.",
+          "Most of the time, the center vertical meeting rail and fixed panel come out easily after removing the screws. You may need to pry it out with a mallet and screwdriver. If that does not work, you can use a hacksaw to cut through the meeting rail. You should not need to break the glass.",
+          "The aluminum outer frame can remain in place."
+        ]
+      },
+      {
+        "step": 2,
+        "title": "Place the new vinyl window into the frame to make sure it fits correctly. Then remove it from the frame."
+      },
+      {
+        "step": 3,
+        "title": "Put a bead of polyurethane caulk around the old aluminum window frame.",
+        "details": [
+          "Leave two or three 3\" gaps at the bottom to allow moisture to leak out."
+        ]
+      },
+      {
+        "step": 4,
+        "title": "Place the vinyl window into the frame so that it pushes up against the caulk and creates a seal."
+      },
+      {
+        "step": 5,
+        "title": "Adjust the window so that it is level, and the sliding panel operates smoothly.",
+        "details": [
+          "Use a spirit level to determine if the window is level.",
+          "You may need to place shims to make adjustments."
+        ]
+      },
+      {
+        "step": 6,
+        "title": "Drill 4 screws through the right and left side of the vinyl frame into the the wall to hold it in place.",
+        "details": [
+          "Drill holes with a drill, then screw in the 3 screws with a screw driver.",
+          "Make sure the screws do not hinder the opening or closing of the sliding window.",
+          "Do not tighten the screws too tight or it may bend the vinyl frame. The screw may stick out a bit."
+        ]
+      },
+      {
+        "step": 7,
+        "title": "Spray expanding foam into the interior gap around the frame for insulation."
+      },
+      {
+        "step": 8,
+        "title": "Place trim around the outside of the interior of the frame to cover up the gap between the vinyl frame and the wall."
+      },
+      {
+        "step": 9,
+        "title": "Put siliconized acrylic sealant in the gap between the trim and the wall to create a smooth seal.",
+        "details": [
+          "Wipe off any excess sealant with a rag."
+        ]
+      },
+      {
+        "step": 10,
+        "title": "Put siliconized acrylic sealant in the gap between the trim and the wall to create a smooth seal."
+      }
+    ]
+  },
+  "apply_caulk_window": {
+    "title": "How to apply Caulk to a window",
+    "description_guide": "Caulking refers to the process of sealing a gap between two surfaces for the purpose of making it air and watertight. Below is the recommended process of caulking your Vinyl window. The caulks are available as an option when you purchase your window. You can also buy the separately at a hardware store. Let's start with a basic informational video about How to Caulk Windows:",
+    "introduction": "When doing a window replacement, There are 3 different places to seal the window.",
+    "installation_steps": [
+      {
+        "step": 1,
+        "title": "The Gap around the outside edge of the window",
+        "details": [
+          "Put additional polyurethane sealant around the outside of the exterior of the frame as needed to ensure a good seal between the wall and the window frame.Remember to leave 2 or 3 gaps at the bottom to allow moisture to seep out."
+        ]
+      },
+      {
+        "step": 2,
+        "title": "The Gap between the window frame and the wall",
+        "details": [
+          "The space between the window frame and the wall varies on each window. That space should be filled in to insulate the window. To do this you should use an expanding foam sealant. You can buy expanding foam sealant in a can that dispenses through a straw.",
+          "Tips: place the foam as close to the exterior wall as possible, use only enough foam to bridge the gap to fill the void. Do not overfill the void, a ½ inch bead will stop the draft and match the R factor of most energy efficient windows. The foam is not an insulation material where more is better, foam is intended to bridge the gap and be an air barrier. Let the foam cure and then review each window to assure all voids are sealed."
+        ]
+      },
+      {
+        "step": 3,
+        "title": "The gap that the trim creates on the interior of the window.",
+        "details": [
+          "To fill this gap you should use a siliconized acrylic caulking. Clean the surface, apply the caulking lightly, and wipe any remaining caulking off with a rag. You can see this 2 minutes into the following video:"
+        ]
+      }
+    ]
+  },
+  "windwo_flush_with_wall": {
+    "title": "Replace a Window that is Indented, or Not Flush with the Wall",
+    "description_guide1": "Not all windows are flush with the wall. Some are indented in an inch or two. This means the standard flush fin window that overlaps the wall will not work because the window would need to sit deeper into the opening.",
+    "description_guide2": "In this case, the best method is to purchase a retrofit window with flush fins, and then cut the flush fins back to the width of the opening so the window fits inside, and the flush fins cover up the old aluminum window frame."
+  },
+  "labour_estimate": {
+    "title": "Hire an Installer for in-home estimate",
+    "SKU": "6679813",
+    "description": "This service is for an installer to meet you at your location, discuss options, do measurements, and make a work order for your unique situation.",
+    "note": "There is no charge for estimates. All appointments must be verified by phone before we will dispatch a consultant. Free Estimates are available only in San Diego and surrounding county.",
+    "image": "URL_to_image",
+    "what_to_expect": {
+      "title": "What to Expect:",
+      "description": "When you order this service, an installer will contact you to schedule a time to meet at your location to verify measurements and discuss options with you. This will ensure the final result will be exactly how you want it. Here are estimates that the installer will probably quote on standard door and window installations. Keep in mind that the $75 you pay here is deducted from the final installation prices below.",
+      "pricing_estimates": [
+        "Each window usually costs $200 to install.",
+        "Each patio door usually costs $400 to install.",
+        "Each front door usually costs $600 to install."
+      ],
+      "included_services": [
+        "Materials such as: Caulking Sealant & Trim.",
+        "Adding Trim or Transition strips where needed.",
+        "Interior molding.",
+        "Transporting Door and Window to your location if in Southern California.",
+        "Old Door and Window removal and disposal."
+      ]
+    },
+    "labor_warranty_information": {
+      "title": "Labor Warranty Information:",
+      "description": "All pre-approved installers are licensed and experienced contractors. The labor warranty will match the duration of the manufacturer’s warranty on the products installed. This means that if a door has a lifetime warranty, then the labor to install the door will also have a lifetime warranty. That way if there is an issue with the door that was caused by the installer, it will be covered by the installer. If there is an issue with the door caused by a defect in the door, then the manufacturer will repair or replace the door.",
+      "link_text": "Read more about labor warranty here",
+      "link_url": "URL_to_labor_warranty_information"
+    }
+  },
+  "tempered_safety_glass": {
+    "title": "When to use Tempered Safety Glass",
+    "introduction": {
+      "text": "When you are doing a window replacement job, you should be aware that there are Universal Building Codes that you need to abide by. The main one you need to understand is when it is required to use Tempered safety glass.",
+      "definition": "Tempered glass is glass that has an extra procedure done to it to make it 4 to 5 times stronger. The procedure involves heating the glass up, and then cooling it down rapidly. This process makes the glass stronger, and also changes the way the glass breaks. The glass shatters into small blocks that are much less likely to cause injury. That is why Tempered glass is also called Safety glass."
+    },
+    "hazardous_areas": {
+      "introduction": "The areas considered to be hazardous safety glazing areas requiring tempered glass are:",
+      "list": [
+        "Glass in any door.",
+        "Glass in any kind of shower, bathtub area, hot tub, steam room, sauna or whirlpool area where the bottom edge of the glass is less than 60 inches above a standing surface and drain outlet.",
+        "Glass in fixed or operable panels adjacent to a door where the nearest exposed edge of the glazing is within a 24” arc of either vertical edge of the door in a closed position and where the bottom edge of the glazing is less than 60” above a walking surface.",
+        {
+          "conditions": [
+            "18” above the floor in addition to 24” from a door.",
+            "If a glass is 72” above the deck of a tub it has to be tempered.",
+            "If glass is 42” from the floor in a stairwell it has to be tempered."
+          ],
+          "text": "Glass in fixed or operable panels that meets all of the following conditions."
+        },
+        {
+          "conditions": [
+            "The bottom edge of the glazing is less than 60” above a pool side of the glazing.",
+            "The glazing is within 5 feet of a swimming pool or spa deck area."
+          ],
+          "text": "Glass in walls used as a barrier for indoor or outdoor swimming pools or spas when both of the following exist."
+        },
+        "Glass in walls enclosing stairway landings or within 5 feet of the bottom and top of stairways where the bottom edge of the glass is less than 60” above a walking surface."
+      ]
+    },
+    "recommendation": "You can select tempered glass on any of the windows you order from Discount Door and Window. Select 'Glass Strength' option, and choose tempered glass.",
+    "references": {
+      "title": "For more information about the universal building code on Safety glass check our references:",
+      "links": [
+        "Consumer Product Safety Commission",
+        "California Building Standards Commission",
+        "The Safety Glazing Certification Council (SGCC)"
+      ]
+    },
+    "images": [
+      {
+        "title": "When to use Tempered Safety Glass",
+        "description": "Illustrative image of tempered glass"
+      },
+      {
+        "title": "When Safety Glass is Required",
+        "sub_images": [
+          {
+            "label": "GLASS IN SIDELITES - ELEVATION",
+            "description": "Diagram showing required safety glazing locations"
+          },
+          {
+            "label": "PLAN VIEW",
+            "description": "Diagram showing plan view of safety glazing areas"
+          },
+          {
+            "label": "GLASS WITHIN SHOWER WALLS",
+            "description": "Diagram showing where safety glazing is required within shower walls"
+          }
+        ]
+      }
+    ]
+  },
+  "energy_efficiency": {
+    "title": "Energy Efficiency",
+    "introduction": {
+      "text": "An average home may lose up to 30% of its heat or air-conditioning energy through in-efficient doors and windows. This can be due to a lot of reasons, but mostly because of out-dated technology, poorly sealed doors, and single pane windows. Most homeowners are well aware of this after walking into a room with old windows, and feeling the unsettling winter chill. Over the years there have been monumental improvements in door and window energy efficiency technology."
+    },
+    "doors_and_windows": {
+      "text": "Here at Discount Door and Window, we have selected products that we have found to be very energy efficient, durable and low cost. All of our windows qualify for a Tax Rebate if you use them to replace old aluminum or wood windows. This is because the amount of energy you save is large enough that the government wants to encourage homeowners to make the upgrade. With this tax rebate, and monthly savings on the energy bill, our retrofit vinyl windows will pay for themselves within a few years."
+    },
+    "energy_efficient_technology": {
+      "text": "There are a lot of qualities that attribute to how efficient our doors and windows are, but the most distinguishing features are the double pane with argon gas and Low-E technology. Low-E is short for 'low-emissivity.' It is a high-tech coating on the glass that is designed to block much of the heat and ultra-violet light from the sun, while permitting a large percentage of visible light. Argon-filled double pane glass provides excellent insulation. These technology help keep the warmth in during the winter, and the heat out the summer."
+    },
+    "measuring_efficiency": {
+      "text": "When purchasing new windows or doors, there are two key measure of efficiency that should be considered. The U-value of a window or door is a measure of heat loss. And the “Solar Heat Gain Coefficient” (SHGC) which measures how well a product blocks heat from the sun. For both of these measurements: the lower the number the higher the efficiency. These numbers are calculated by the National Fenestration Rating Council (NFRC). Our windows at Discount Door and Window have a U-Value of atleast 0.3"
+    },
+    "conclusion": {
+      "text": "If you have old doors and windows in your home, you have a lot to gain by replacing them with higher efficiency products. It will increase the comfort and style in your home, and save you money on your energy bill. Here at Discount Door and Window our goal is to provide you with replacement doors and windows that are affordable, durable, and energy efficient. We also empower you to make informed decisions by providing information, and video tutorials on how to get stuff done in a cost effective way."
+    }
+  },
+  "questions_installer": {
+    "title": "5 Questions You Should Ask an Installer",
+    "questions": [
+      {
+        "question": "How long will the project take?",
+        "answer": "It usually takes between 2 to 4 weeks for the doors and windows to be ready for installation. The installation itself should take 1 or 2 days, depending on how many doors and windows to install."
+      },
+      {
+        "question": "What does the overall process involve?",
+        "answer": "Make sure the Installer knows all the details of your situation, and that you know what will happen next."
+      },
+      {
+        "question": "Are you a licensed contractor?",
+        "answer": "Our installers are licensed contractors."
+      },
+      {
+        "question": "What if something goes wrong?",
+        "answer": "Make sure you have their direct contact information, so you can contact them if something doesn't go as expected, or there is a change in plan."
+      },
+      {
+        "question": "What warranties will I receive?",
+        "answer": "Most of our doors and windows have a limited lifetime warranty from the manufacturer. The labor warranty duration will match the manufacturer's warranty. Check to make sure you know what warranty your products have. Read more about our warranties."
+      }
+    ]
+  },
+  "green_house_content": [
+    {
+      "step": "Step 1",
+      "description": "Frame rough opening equal to window call out size. Rough opening should be plumb, square, and sill should be level. For stucco applications furring strips of at least 3/8' thick, should be used around entire perimeter to allow for proper clearance or optional stucco mold can be purchased, see number 5 below. For special size Tru-Frame® Greenhouse Windows the suggested rough opening size is:Width 5 1/2' Less Fin to Fin DimensionHeight 3 3/8' Less Fin to Fin Dimension",
+      "image": "/greenhousewindowfig1.png"
+    },
+    {
+      "step": "Step 2",
+      "description": "Apply the flashing paper in the normal manner. First the sill strip, then the jamb strips. The top flashing goes on after the window is installed and overlaps the top window fin. (See Figure 2)",
+      "image": "/greenhousewindowfig2.jpg"
+    },
+    {
+      "step": "Step 3",
+      "description": "Center the Tru-Frame® Greenhouse Window in rough opening allowing equal clearance on both sides and top. Bottom pan should line up with the finished sill height, allowing for any inside additional materials such as tile (see figure 3). Attach window to jambs, sill, and header with screws long enough to penetrate through any furring strips and deep into framing. A ribbon of caulking between the frame and flashing is a must.",
+      "image": "/greenhousewindowfig3.jpg"
+    },
+    {
+      "step": "Step 4",
+      "description": "For window sizes 5' and larger, support bracing is highly recommended on each end of the window (Warranty could be void without proper support). These supports can be constructed as part of the wall framing or metal support brackets may be fabricated to adequately support the window. Support brackets can be purchased separately from your Tru-Frame® Dealer. Fasteners to be supplied by installer (1/4' X 3' Lag screws are suggested for wall mounting). Brackets must attach to the vertical studs below the window. For 8' windows a third support should also be used in the center. (see figure 3)",
+      "image": "/greenhousewindowfig4.jpg"
+    },
+    {
+      "step": "Step 5",
+      "description": "Optional extruded aluminum stucco molding is cut square to fit around the perimeter of the window. Jamb moldings fit between header and sill moldings. Stucco moldings can be purchased separately from your Tru-Frame® Dealer. (See Figure 4a, 4b, and 4c)",
+      "image": "/greenhousewindowfig4.jpg"
+    }
+  ],
+  "replacement_window": {
+    "title": "10 Things to Know Before You Buy Replacement Windows",
+    "introduction": "Buying replacement windows is a great way to improve the beauty, value and comfort of your home and it is a great investment. Remodeling Magazine’s annual Cost v. Value Report for 2007 says that homeowners in San Diego can expect to recoup up to 98.5% of their cost for installing vinyl replacement windows. But before you make any significant investment, you want to be sure you have done your homework and are ready to make a well-informed decision. Here are some things to consider before you sign on the dotted line.",
+    "topics": [
+      {
+        "topic_number": 1,
+        "title": "The difference between “replacement” windows and “retro-fit” windows. A replacement window is simply any window that replaces an existing window. This can be done using a “new construction” window or a “retro-fit” window. But the terms “replacement” and “retro-fit” are often used interchangeably, even by window professionals, so don’t let that confuse you. What installation method is best for your home?",
+        "description": "Replacement windows replace existing windows using 'new construction' or 'retro-fit' methods. The best method depends on your home’s needs.",
+        "methods": [
+          {
+            "name": "New Construction",
+            "description": "If you are planning to re-stucco or replace your siding at some point in the near future, then using new construction windows may be the best choice. This involves cutting back the stucco or siding four to eight inches from the edge of your window, removing the flashing paper and then removing the old window. Next your contractor will install the new window, apply new flashing paper, and then replace the stucco, usually a three-step process. The advantage to using new construction windows is that your new windows will be the same size as your old windows. The disadvantage is that if you are not planning to re-stucco your house, you will eventually be able to tell that the stucco was patched. The old stucco and the new stucco will not expand and contract at the same rate and over time cracks will appear between the old and new stucco. This installation method also costs considerably more than using the “retro-fit” installation method."
+          },
+          {
+            "name": "Retro-Fit",
+            "description": "If you are not planning to re-stucco your house any time soon or if you are concerned about your budget, a retro-fit window is probably your best choice. Installing retro-fit windows does not require any stucco damage because the perimeter frame of the old window will not be removed. The new retro-fit window is designed to fit inside your old window. Your contractor will use a different installation method, and a different type of retro-fit window, depending on whether your old windows are metal or wood. Because your new window is fitting inside the frame of your old window, it will need to be slightly smaller than the old window was. In most cases this is barely noticeable, but if the old window was small in the first place, such as a bathroom window, it may seem obvious. Also, some window companies have a very wide exterior flange that some homeowners find unattractive."
+          }
+        ]
+      },
+      {
+        "topic_number": 2,
+        "title": "What type of windows do you have now? Metal or Wood? If you are using retro-fit windows, the type of windows you have now will make a difference in how your new windows will be installed.",
+        "options": [
+          {
+            "type": "Metal Windows",
+            "description": "Typically, metal windows are replaced using a retro-fit window that has an exterior flange that will conceal your old window frame from the outside. The contractor will remove the glass and any bars that divide the window to create one large opening. The new window will come with a flange that extends about two inches all around the perimeter of the frame. The new window will fit inside the opening of your old window and the flange will conceal the perimeter frame of your old window. Your contractor will use trim to conceal your old window frame from the inside. Different contractors offer different interior trim options."
+          },
+          {
+            "type": "Wood Windows",
+            "description": "Typically, wood windows will be replaced using a retro-fit window that has a sill (bottom) that is designed to accommodate the slope of the old wood window sill. The contractor will remove either the interior or the exterior stops of the old windows, remove the sash (moving parts that hold the glass) and leave the perimeter frame in place. The new window will fit into the old perimeter frame. Some companies offer an aluminum wrap for the old wood window sill, but be sure to ask to see some jobs where this has been done. It is difficult to do well, and the wrap often has gaps where the edges do not line up well. In most cases, a good paint job will finish off the old window sill nicely and painting will help keep the charm of the old wood windows.(See How We Install from the main Menu of our web site) www.LaMesaDoorWindow.com."
+          }
+        ]
+      },
+      {
+        "topic_number": 3,
+        "title": "Know what type of frame material you want for your windows. There are advantages and disadvantages to all the frame materials available, so it is a good idea to consider them in advance.",
+        "materials": [
+          {
+            "name": "Vinyl",
+            "description": "Vinyl windows are far and away the most popular choice for window replacement, and for good reason. They are maintenance free, insulate well, make a smooth operating window and are relatively inexpensive. The downside is that they are usually only available in white and tan and vinyl cannot be painted. Some companies offer dark colored vinyl windows, but other companies have withdrawn them from the market due to failures associated with the dark material absorbing too much heat. Always check the warranty carefully."
+          },
+          {
+            "name": "Aluminum",
+            "description": "Aluminum windows have poor insulation qualities, but changing your windows from old aluminum windows that are single glazed to new aluminum windows that are dual glazed and have high performing low-e glass will provide a noticeable improvement in insulation. If you already have aluminum windows and you do not plan to replace them all, this may be a good choice so that your new windows more closely match your existing windows. Also, aluminum is available with dark bronze anodized frames which may be a good choice if you want the look of a dark frame, or clear anodized if you want to keep a mid-century contemporary style."
+          },
+          {
+            "name": "Fiberglass",
+            "description": "Fiberglass windows insulate well, are maintenance free and are available in dark colors. They are also easily painted if you want to change your color scheme at some point in the future. Unfortunately, fiberglass windows are usually quite expensive, often in the same price range as high-end wood windows."
+          },
+          {
+            "name": "Wood",
+            "description": " Wood windows are available with or without a low-maintenance exterior cladding. If you are restoring an old home and want to stay as true as possible to the original windows, then you may want to choose windows without exterior cladding. Unfortunately, they will require regular painting, and if you want dual-glazed windows with low-e glass, they will be nearly as expensive as clad wood windows. Exterior cladding is usually aluminum or vinyl and is available in a variety of colors. If you are planning to retro-fit your existing windows, you will almost certainly need special sizes, and many wood window companies either charge extra for special sizes or do not offer special sizes at all."
+          }
+        ]
+      },
+      {
+        "topic_number": 4,
+        "title": "Understand the glass options available to you.",
+        "options": [
+          {
+            "type": "Single glazed vs. Dual glazed",
+            "description": "A single-glazed window has just one layer of glass. A dual-glazed (or dual-pane) window has two layers of glass with a hermetically sealed air space between them. With single-glazed windows, there is very little that can go wrong with the glass unless it breaks, but single glazed windows do almost nothing to insulate your home. The advantage to dual-glazed windows is that the air trapped between the panes of glass insulates the way air trapped between feathers in a down comforter insulates. The disadvantage to dual-glazed windows is that the hermetic seal will fail eventually, most experts say in 15 to 20 years, so it is important to choose a window manufacturer who offers a warranty on the dual-glazed units, and who is likely to still be in business 15 to 20 years from now. If not covered by warranty, replacing the dual-glazed units will probably cost as much as your replacement windows did in the first place"
+          },
+          {
+            "type": "Low-E Glass",
+            "description": "Low-E is short for “low-emissivity.” It is a high-tech coating on the glass that is designed to block much of the heat and ultra-violet light from the sun, while permitting a large percentage of visible light, so it will reduce solar heat gain and fading without making your home uncomfortably dark. Almost all window manufacturers now consider low-e glass to be standard for new windows, but upgrading from standard Low-E to new high-performing Low-E will provide even greater energy efficiency."
+          },
+          {
+            "type": "Low-Maintenance Coatings",
+            "description": "Some window manufacturers are now offering a low maintenance glass coating, sometimes referred to as “self-cleaning” glass. Calling it self-cleaning may be overstating the facts, but the low-maintenance coatings do help your windows stay cleaner and make them easier to clean. Cardinal Glass Industries makes a low-maintenance coating called “Neat.” Cardinal says that Neat-coated glass “harnesses the sun's UV rays to loosen dirt so water can rinse it away, leaving windows virtually spotless. Your windows will stay cleaner longer and will clean easier.”"
+          },
+          {
+            "type": "Argon Gas",
+            "description": "Argon gas is a colorless, odorless, inert gas that is denser than air and can be used between panes to provide a small improvement in thermal performance and energy savings."
+          }
+        ]
+      },
+      {
+        "topic_number": 5,
+        "title": "Do you want the look of divided lites? The look of divided lites can be created by using true-divided lights, simulated divided lites, or internal grids.",
+        "options": [
+          {
+            "type": "True Divided Lites",
+            "description": "true divided lites are usually seen in wood windows. Wood (or other window-frame material) is used to actually separate the glass into small rectangles, and each piece of glass, or dual-glazed unit, is glazed into the window separately. This is usually expensive, but has the authentic look of an old wood window."
+          },
+          {
+            "type": "Simulated Divided Lites",
+            "description": "Simulated Divided Lites – Simulated divided lites use one larger piece of glass, and frame material is applied to the glass on the exterior and/or interior of the window to create the look of true divided lites. If the window is dual glazed, a “shadow bar” is often put between the two panes of glass to make the effect more realistic."
+          },
+          {
+            "type": "Internal Grids",
+            "description": "Internal grids are placed between the two panes of glass to give the impression of divided lites. This is a low-maintenance option, because when cleaning the windows, you are cleaning one large piece of glass rather than several smaller pieces of glass. Grid material is usually available in a flat or sculptured profile, and is considerably less expensive than either simulated or true divided lites."
+          }
+        ]
+      },
+      {
+        "topic_number": 6,
+        "title": "Know what the manufacturer’s warranty is. Many window manufacturers offer a “lifetime” warranty but the definition of “lifetime” varies widely. Some companies will provide you with replacement parts, but no labor to install the part. Other companies consider “lifetime” to be ten or twenty years. Be especially careful regarding the warranty of the dual-glazed units. Dual-glazed units are likely to last fifteen to twenty years, but when they fail, the cost of replacing them will probably be more than the cost of the replacement windows in the first place, as field labor is usually quite expensive. Some companies will even cover accidental breakage of the glass or the screen. Of course, the warranty is only as good as the company behind it. A company that has been in business for a long time will likely be there if you have a problem many years from now."
+      },
+      {
+        "topic_number": 7,
+        "title": "Know what your rights are",
+        "description": "The Contractors State License Board has helpful information about what you should expect from your contractor. You can get more information at:",
+        "link": "http://www.cslb.ca.gov/GeneralInformation/Library/GuidesAndPamphlets.asp"
+      },
+      {
+        "topic_number": 8,
+        "title": "Don’t get pressured into making a decision right away. Many companies spend a lot of money on the marketing needed to get a sales appointment in the first place, and they need to recover those marketing expenses somehow, usually by charging more. They know that if you have time to get competitive bids you are less likely to go with their company, so they sometimes offer big “discounts” if you sign right away. Don’t be fooled. If it is a good deal today, it will be a good deal next week."
+      },
+      {
+        "topic_number": 9,
+        "title": "Check referrals. Ask to see a list of customers and ask if you can contact past customers. If they can only offer you a couple of names, be careful. Any company that has been in business for very long should have a long list of satisfied customers."
+      },
+      {
+        "topic_number": 10,
+        "title": ". Trust your instincts. If it seems too good to be true, it probably is. Choose the company that you have the most confidence in. Allow them to make a fair profit and you will pay a fair price. Remember “if the deal isn’t good for everybody, then it’s no good at all.”For more general information about windows, a helpful website is:",
+        "link": "https://www.efficientwindows.org/or learn more at our Learning Center"
+      }
+    ]
+  },
+  "our_vinyl_products": {
+    "title": "What are the advantages of our Vinyl products",
+    "introduction": {
+      "text": "An average home may lose 30% of its heat or air-conditioning energy through old aluminum windows. By replacing old windows with new Low-E, double pane, retrofit vinyl windows, you can make a noticeable difference in how well a room keeps it’s temperature, and reduce the heating and cooling bill. Our retrofit vinyl windows combine technology that allows for a low cost energy efficient window replacement that will eventually pay for itself in energy efficiency savings.",
+      "definition": "Vinyl windows are durable, low-maintenance, and stylish. They never require painting and are not effected by moisture. Our vinyl windows and sliding doors have these features:"
+    },
+    "ourvinylproducts": [
+      {
+        "step": "New Generation Vinyl",
+        "description": "New Generation Vinyl withstands harsh weather and wear-and-tear better. This rugged, maintenance-free, New Generation uiPV offers low conductivity and high energy-efficiency properties for your home and you'll never need to paint or stain these windows.",
+        "image": "src/assets/dp25certified 1.png"
+      },
+      {
+        "step": "New Generation Vinyl",
+        "description": "New Generation Vinyl withstands harsh weather and wear-and-tear better. This rugged, maintenance-free, New Generation uiPV offers low conductivity and high energy-efficiency properties for your home and you'll never need to paint or stain these windows.",
+        "image": "src/assets/limitedlifetimewarranty1.png"
+      },
+      {
+        "step": "HP SC Glass",
+        "description": "Combines solar cooling optimized Low-E with argon gas fill for high performance that is optimized for warmer climates.",
+        "image": "src/assets/lowe1.png"
+      },
+      {
+        "step": "Pinch Fusion Welding",
+        "description": "Our Replacement Series windows are entirely fusion welded – sashes and mainframes – to create a solid, one-piece unit that maintains its strength over the years. Our state-of-the-art fusion process ensures frame and sash corners won't have the excess variance found with other welding techniques.",
+        "image": "src/assets/pinchfusionweld1.png"
+      },
+      {
+        "step": "Warm Edge Technology",
+        "description": "The Warm Edge glass spacer system reduces thermal transfer around the glass perimeter by utilizing a unique U-shaped channel to separate glass panes and interrupt the natural flow of heat to cold. Warm Edge is one continuous piece creating a stronger, more energy-efficient insulated glass unit.",
+        "image": "src/assets/warmedgetech1.png"
+      },
+      {
+        "step": "Custom Sizing",
+        "description": "Our windows can be ordered in 1/8 inch increments to accommodate any replacement application providing a perfect fit and minimizing installation time and special trimming requirements",
+        "image": "src/assets/soundreduction1.png"
+      },
+      {
+        "step": "Sound Reduction",
+        "description": "Optional laminated glass can improve sound control by reducing exterior noise.",
+        "image": "src/assets/soundreduction1.png"
+      },
+      {
+        "step": "Limited Lifetime Warranty",
+        "description": "We are committed to providing industry-leading warranties for all of its products.",
+        "image": "src/assets/soundreduction1.png"
+      },
+      {
+        "step": "DP 25 Certified",
+        "description": "Our Windows are tested to meet the air, water and structure requirements of AAMA/WDMA 101/I.S.2. DP is the design pressure rating that the window receives from this outside testing.",
+        "image": "src/assets/soundreduction1.png"
+      }
+    ]
+  },
+  "discount_door_window": {
+    "title": "Request an In-Home Estimate - Discount Door & Window",
+    "door_image": "/path/to/doorInformation.png",
+    "info_banner": "Fiberglass Door Information",
+    "points": [
+      "No unsightly screw plugs around glass on either side: Our exclusive SmartFrame™ Snap-On Frame creates a completely unblemished surface.",
+      "Stainable and paintable wood grain skin, or paintable smooth skin: Distinction Doors fiberglass skin is paint and stain ready.",
+      "Triple pane decorative glass: Triple pane decorative glass provides excellent thermal insulation.",
+      "Fiberglass skin won’t dent, ding, or rust: Unlike steel doors, Fiberglass is unaffected by moisture and humidity.",
+      "Extended lock block resists forced entry: Our 20\" extended lock block adds security and peace of mind to your entry.",
+      "Beautifully detailed architectural panels: Distinction Doors are designed with deeper shadow lines and better curb appeal.",
+      "Waterproof composite sides: Distinction Doors use a nonporous composite edge instead of a regular wood edge so it will never rot or warp.",
+      "Insulated core: Our environmentally-friendly insulation provides maximum thermal protection.",
+      "Waterproof composite top and bottom rails: Extra non-porous protection keeps water from seeping into the door."
+    ]
+  },
+  "replace_door_windows": {
+    "title": "Why Replace Your Door or Windows?",
+    "door_image": "/path/to/doorInformation.png",
+    "points": [
+      "You walk or look through them every single day. But how often do you really think about the impact your home's doors and windows have on its value, beauty, and livability? Home improvement experts agree that updating your windows and doors can help you save on energy bills, improve the look and infrastructure of your home and add long-lasting value.",
+      "\"One of the most valuable investments you can make in your home is door and window replacement,\" says Lou \"Mr. Fix It\" Manfredini, home improvement editor for the Today Show and \"USA Today Weekend Magazine.\"",
+      "Replacing your windows can mean making many decisions: Is it time to replace? And if so, how do you go about choosing the best replacement windows?",
+      "Performance",
+      "This is the most compelling reason to change a door or window. On top of testing your patience, windows and doors that stick aren't giving you the optimum benefit in terms of convenience and efficiency. Performance is also tied to safety-if doors are windows are not opening properly they can be a safety hazard.",
+      "Energy Efficiency",
+      "Check for drafts around doors and windows by moving a lit candle slowly around the edges. If the flame flickers, you have a draft -- one of the biggest drains on the energy efficiency of your home. Drafts add up to real dollars on your heating and cooling bills, so this is, for many people, the impetus to replace their windows or doors.",
+      "Maintenance",
+      "Older windows and doors require maintenance -- scraping, painting and caulking. Newer windows and doors feature low maintenance cladding, a protective exterior covering that requires minimal maintenance. Many newer windows also make cleaning easy with a convenient tilt feature that allows you to wash them from inside your house.",
+      "Aesthetics",
+      "Curb appeal is vital if you're selling your house and a satisfying lifestyle enhancement if you plan to stay in your home for years to come. Updated windows and doors not only improve energy efficiency and lower maintenance costs, they make your house look more appealing as well.",
+      "Manfredini advises: \"The number one attribute you should look for in a replacement window or door is quality. Windows are one of the most noticeable parts of your home, so make sure you look for windows that are of furniture-grade quality.\""
+    ],
+    "advice": "The number one attribute you should look for in a replacement window or door is quality. Windows are one of the most noticeable parts of your home, so make sure you look for windows that are of furniture-grade quality."
+  },
+  "dentil_shelf": {
+    "title": "How to Install a Dentil Shelf",
+    "introduction": "Please read and understand all installation and adhesive instructions prior to opening the adhesive cartridge",
+    "caution": "Make sure your work area is well-ventillated and has air circulation. Adhesive is flammable, keep away from heat and flame. Please wear safety glasses and latex gloves. Avoid contact with eyes and skin. Read warning label on adhesive box. KEEP OUT OF REACH OF CHILDREN.",
+    "notes": "When painting, the door and dentil shelf should be unfinished when applying dentil shelf. Door needs to be removed from the opening and placed in a horizontal position for a minimum of three hours to allow the adhesive to cure.",
+    "tooles_needed": "Latex Gloves, Safety Glasses, Mineral Spirits, Soap and Water, Stir Stick, Bristle Brush and Disposable container for mixing.",
+    "topics": [
+      {
+        "topic_number": "Step 1",
+        "title": "Before You Start Protect the underside of the door by laying it flat on padded sawhorses or another padded surface. Position the door with the exterior side facing up. Thoroughly clean the door surface and the dentil shelf with soap and water. Be sure to thoroughly rinse with water to make sure all soap and residue are removed and then dry completely. Surfaces must be completely dry before going on to Step 2."
+      },
+      {
+        "topic_number": "Step 2",
+        "title": "Locate Shelf Position the dentil shelf on the door so that it's centered along the width of the door and parallel to the glass opening (suggested location is entered from bottom of glass frame and top of panel embossments). Use a graphite pencil to lightly mark the location of the top and sides of the shelf on the door face.)"
+      },
+      {
+        "topic_number": "Step 3",
+        "title": "Apply Adhesive Open adhesive cartridge as directed in the “DIRECTION FOR USE” instructions on the label of the adhesive cartridge. Dispense adhesive as instructed into a disposable container and mix thoroughly with a clean stir stick for sixty seconds. Using a bristle brush, apply a thin coat of adhesive to the underside of the shelf. Be careful not to allow adhesive on the sides of the shelf. The coating should not be more than 1/16” thick and should be approximately 1/2” away from all edges to help prevent squeeze-out. Carefully press the shelf onto the door face using your pencil lines (from Step 2) as your locating guides. Apply firm pressure to ensure contact with door. You will have approximately 3 to 4 minutes to work with the shelf before the adhesive starts to set. Immediately remove any adhesive squeeze-out with mineral spirits and a clean cloth."
+      },
+      {
+        "topic_number": "Step 4",
+        "title": " Cure Time The shelf and door should remain in the horizontal position for a minimum of three hours to allow the adhesive to cure. After three hours, the door can be finished if painting or re-installed if staining. Full bond strength is reached at sixteen hours."
+      },
+      {
+        "topic_number": "Step 5",
+        "title": "Adhesive Disposal Wipe tip clean, retract plunger slightly and close with the special cap. Allow the adhesive in the disposable container to harden in a well ventilated area. Once hardened, properly dispose of adhesive. Source: plastpro"
+      }
+    ]
+  },
+  "paint_fiberglass_door": {
+    "title": "How to Paint Fiberglass Door",
+    "door_image": "/path/to/doorInformation.png",
+    "paintSecton": [
+      {
+        "step": "Materials:",
+        "image": "greenhousewindowfig1.png",
+        "instructions": [
+          "Lint-free cloth",
+          "Acetone",
+          "Rubber Glove",
+          "Masking tape",
+          "4\" Bristle Brush",
+          "For water-based application: Acrylic-based primer / acrylic latex-based exterior grade paint."
+        ]
+      },
+      {
+        "step": "Step 1: Surface Preparation",
+        "image": "vinylwindow.png",
+        "instructions": [
+          "Lay door horizontally on saw horses or a table.",
+          "Remove all the hardware and mask off anything you don't want painted, such as the glass insert.",
+          "Do not sand grained Fiberglass.",
+          "Wipe the door with acetone to clean any dust or residue from the surface.",
+          "Allow acetone to dry from the surface before applying paint. Do not use hydro-carbon based solvents to clean the surface as such products may leave a residue.",
+          "Apply primer with a 4\" brush beginning with the panels. Follow the manufacturer's instructions for drying time before applying topcoat.",
+          "The primer must be completely dry before applying any finish topcoat."
+        ]
+      },
+      {
+        "step": "Step 2: Painting",
+        "image": "greenhousewindowfig1.png",
+        "instructions": [
+          "Use a 4\" brush to apply the topcoat.",
+          "Follow the manufacturer's instructions for the best results."
+        ]
+      }
+    ]
+  },
+  "window_estimate_description": {
+    "header": {
+      "title": "How to measure",
+      "description": "The right door is key to the appearance and performance of your home. Look for products that reflect your style as well as your practical needs. With Discount Door and Window you can choose from many energy efficient door options, including patio doors and exterior doors like Vinyl Doors, Fiberglass Doors, and Solid Wood Doors. Discount Door and Window is the place to go for discount doors in San Diego."
+    },
+    "image": "/windowdescription.png",
+    "sections": [
+      {
+        "title": "More About Doors",
+        "description": "The right door is key to the appearance and performance of your home. Look for products that reflect your style as well as your practical needs. With Discount Door and Window you can choose from many energy efficient door options, including patio doors and exterior doors like Vinyl Doors, Fiberglass Doors, and Solid Wood Doors. Discount Door and Window is the place to go for discount doors in San Diego."
+      },
+      {
+        "title": "Step Into Luxury With Doors That Add An Extra Touch Of Elegance",
+        "description": "When it comes to elevating the style and sophistication of your home, there's no better place to start than with your doors and door replacement. We specialize in providing high-quality doors that provide security and functionality and add an extra touch of elegance and luxury to your space. From stunning wooden designs to sleek and modern options, our collection of doors offers something for every taste and style."
+      },
+      {
+        "title": "Welcome Your Guests In Style With Our Inviting Doors",
+        "description": "Whether you're looking to enhance your home's curb appeal or add a touch of luxury to your interiors, our doors are the perfect choice for those who demand both beauty and functionality. Constitute scrolling the best door designs before you plan for exterior door installation."
+      },
+      {
+        "title": "Wood Entry Doors",
+        "description": "Wood entry doors are durable and strong and provide natural insulation, making them energy efficient. They also have a warm and inviting appearance and can add value to a home."
+      },
+      {
+        "title": "Fiberglass Entry Doors",
+        "description": "Fiberglass entry doors are a popular and modern option for front doors. They are made of composite materials that are durable, weather-resistant, and energy-efficient. Vinyl Sliding Patio Doors Vinyl sliding patio doors are a practical and cost-effective option for connecting indoor and outdoor living spaces. They are made of PVC (polyvinyl chloride) and are low-maintenance, weather-resistant, and energy-efficient."
+      },
+      {
+        "title": "Fiberglass French Doors",
+        "description": "If you are looking for door contractors in San Diego for a modern look, these doors are perfect for you. Fiberglass French doors are a popular and modern option for interior or exterior doors. They are made of composite materials that are durable, weather-resistant, and energy-efficient"
+      },
+      {
+        "title": "French Wood Doors",
+        "description": "French wood doors are a classic and traditional option for interior or exterior doors. They also have a warm and inviting appearance and can add value to a home."
+      },
+      {
+        "title": "Vinyl Swinging French Door",
+        "description": "These doors are easy to operate and provide excellent ventilation. Vinyl swinging French doors are ideal for creating an elegant and modern look for a home."
+      },
+      {
+        "title": "Why Get The Best Doors With Us?",
+        "description": "At Discount Door & Window, we are committed to providing our customers with high-quality doors and windows at affordable prices. We understand the importance of having durable and efficient doors and windows in your home or business, which is why we offer a wide selection of products that are made with top-of-the-line materials and advanced manufacturing techniques. Our team of experts is dedicated to helping you find and buy doors in San Diego, perfect doors and windows that meet your specific needs and preferences."
+      },
+      {
+        "title": "Transform Your Home With Our Doors!",
+        "description": "When you choose to buy doors and windows from Discount Door & Window, you can trust that you are getting the best value for your money and that your investment will provide you with years of reliable performance and aesthetic appeal. So, connect with us immediately if you are finding exterior door contractors in San Diego and want to get products at affordable prices."
+      }
+    ]
+  }
+}
