@@ -265,7 +265,7 @@ export const Doors = () => {
                   sx={{ backgroundColor: "#F5F5F5", width: "200px" }}
                   className="text-white text-center rounded-1"
                 >
-                  <Typography variant="h4" sx={{ color: "#FF0000", fontWeight:"bold" }}>$ {price}</Typography>
+                  <Typography variant="h4" sx={{ color: "#FF0000", fontWeight: "bold" }}>$ {price}</Typography>
                 </Box>
                 <Typography sx={{ fontSize: "10px" }}>
                   (According to Selected Options)
@@ -637,7 +637,7 @@ export const Doors = () => {
                       border: "none",
                       "& fieldset": {
                         border: "none",
-                      },  
+                      },
                     }}
                   >
                     <MenuItem value="">

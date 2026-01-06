@@ -19,6 +19,7 @@ import Loader from "../../loader/Loader";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Cookies from "js-cookie";
+import ImageCard from "./ImageCard";
 
 const AllSubProducts = () => {
   const [subsubCategories, setSubsubCategories] = useState([]);
@@ -31,7 +32,8 @@ const AllSubProducts = () => {
 
   const { products_id } = useParams();
   const location = useLocation();
-  const { categorydetails } = location.state || {};
+  const { categorydetails, categoryName } = location.state || {};
+  console.log(categoryName, 'categoryName')
   const userLoggedInId = Cookies.get("userLoggedInId");
   const alanAuthToken = Cookies.get("alanAuthToken");
 
@@ -176,12 +178,12 @@ const AllSubProducts = () => {
             <Box>
               {subsubCategories?.map((category, index) => (
                 <Typography key={index} variant="h5" className="text-black fw-bold">
-                  {category.subcategoryName}
+                  {category?.subcategoryName}
                 </Typography>
               ))}
               <Typography variant="h6" className="text-black fw-bold">
                 <span>
-                  Home {">"} {formatPath(location.pathname)}
+                  Home {">"} {formatPath(location.pathname)} {">"} {categoryName}
                 </span>
               </Typography>
             </Box>
@@ -196,10 +198,9 @@ const AllSubProducts = () => {
               </Typography>
             ) : (
               <Grid container spacing={2}>
-                {/* {subsubCategories?.map((category, index) => ( */}
                 {(showAll ? subsubCategories : subsubCategories.slice(0, 8)).map((category, index) => (
                   <Grid item xs={12} sm={6} md={3} key={index}>
-                    <Box sx={{ borderRadius: "10px", overflow: "hidden", textAlign: "center", position: "relative", backgroundColor: "#f1f1f1", width: "100%", cursor: "pointer" }} className="rounded-3 p-2" onClick={() => handleClick(category)}>
+                    {/* <Box sx={{ borderRadius: "10px", overflow: "hidden", textAlign: "center", position: "relative", backgroundColor: "#f1f1f1", width: "100%", cursor: "pointer" }} className="rounded-3 p-2" onClick={() => handleClick(category)}>
                       <Box component="img" className="p-3" src={category?.images[0] || No_Image_Available} alt={category?.name} sx={{ width: "100%", height: "300px", objectFit: "contain", }} />
                       <p className="fw-bold mb-0">
                         {category?.name ? category?.name.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()) : "N/A"}&nbsp;&nbsp;
@@ -207,7 +208,8 @@ const AllSubProducts = () => {
                           <FavoriteBorderIcon />
                         </IconButton>
                       </p>
-                    </Box>
+                    </Box> */}
+                    <ImageCard category={category} onClick={handleClick} onWishlistClick={handleWishList}/>
                   </Grid>
                 ))}
               </Grid>

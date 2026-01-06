@@ -20,32 +20,17 @@ export const TrakingOrder = () => {
     <div>
       <Container sx={{ mt: 5, mb: 4 }}>
         <Box>
-          <Typography
-            variant="h4"
-            align="center"
-            className="fw-bold text-black"
-          >
+          <Typography variant="h4" align="center" className="fw-bold text-black">
             Order ID: 3354654654526
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            className="mt-2"
-          >
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", }} className="mt-2">
             <Typography align="center" className="fw-bold me-4 text-black">
               <Typography component="span" color="text.secondary">
                 Order date:
               </Typography>{" "}
               {new Date().toLocaleDateString()}
             </Typography>
-            <Typography
-              align="center"
-              className="fw-bold"
-              sx={{ color: "#0068B3" }}
-            >
+            <Typography align="center" className="fw-bold" sx={{ color: "#0068B3" }}>
               Estimated delivery: Jan 5th, 2024
             </Typography>
           </Box>

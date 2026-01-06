@@ -23,7 +23,11 @@ export const addtocartproduct = createAsyncThunk(
         apiUrl = "https://www.discountdoorandwindow.com/api/GMCards/sessions";
       }
       const response = await axios.post(apiUrl, productDetails, { headers });
-      return response.data;
+      console.log(response, 'reduct response');
+      return {
+        ...response.data,
+        message: response.data?.message || "Item added to cart",
+      };
     } catch (error) {
       return rejectWithValue(
         error.response?.data?.message || "Failed to add product to the cart"
@@ -142,9 +146,16 @@ const addToCartSlice = createSlice({
       })
       .addCase(addtocartproduct.fulfilled, (state, action) => {
         state.loading = false;
-        state.cartItems.push(action.payload);
-        state.products.orders.push(action.payload);
+        const order = action.payload?.order;
+        if (order) {
+          if (!state.products?.orders) {
+            state.products = { orders: [], customer: null, productCount: 0 };
+          }
+          state.products.orders.push(order);
+          state.products.productCount = state.products.orders.length;
+        }
       })
+
       .addCase(addtocartproduct.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
@@ -171,12 +182,12 @@ const addToCartSlice = createSlice({
       })
       .addCase(deleteProduct.fulfilled, (state, action) => {
         state.loading = false;
-        if (state.products?.entries) {
-          state.products.entries = state.products.entries.filter(
+        if (state.products?.orders) {
+          state.products.orders = state.products.orders.filter(
             (product) => product._id !== action.payload
           );
         }
-        state.products.productCount = state.products.entries?.length || 0;
+        state.products.productCount = state.products.orders?.length || 0;
       })
       .addCase(deleteProduct.rejected, (state, action) => {
         state.loading = false;

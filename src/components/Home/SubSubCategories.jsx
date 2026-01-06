@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import No_Image_Available from "../../assets/No_Image_Available.jpg";
 import Loader from "../../loader/Loader";
+import ImageCard from "./ImageCard";
 
 const SubCategories = () => {
   const [subsubCategories, setSubsubCategories] = useState([]);
@@ -95,27 +96,15 @@ const SubCategories = () => {
           </Box>
           <Container maxWidth="false" sx={{ mt: 4 }}>
             {errorMessage ? (
-              <Typography
-                variant="h6"
-                color="error"
-                textAlign="center"
-                sx={{ mt: 2 }}
-              >
+              <Typography variant="h6" color="error" textAlign="center" sx={{ mt: 2 }}>
                 {errorMessage}
               </Typography>
             ) : (
               <Grid container spacing={2}>
                 {subsubCategories?.map((category, index) => (
                   <Grid item xs={12} sm={6} md={3} key={index}>
-                    <Box
-                      sx={{
-                        borderRadius: "10px",
-                        overflow: "hidden",
-                        textAlign: "center",
-                        position: "relative",
-                        backgroundColor: "#f1f1f1",
-                        width: "100%",
-                      }}
+                    {/* <Box
+                      sx={{ borderRadius: "10px", overflow: "hidden", textAlign: "center", position: "relative", backgroundColor: "#f1f1f1", width: "100%", }}
                       className="rounded-3 p-2"
                       onClick={() => handleClick(category)}
                     >
@@ -124,17 +113,14 @@ const SubCategories = () => {
                         className="p-3"
                         src={category?.images || No_Image_Available}
                         alt={category?.name}
-                        sx={{
-                          width: "100%",
-                          height: "300px",
-                          objectFit: "contain",
-                        }}
+                        sx={{ width: "100%", height: "300px", objectFit: "contain", }}
                         onError={(e) => { e.target.onerror = null; e.target.src = No_Image_Available; }}
                       />
                       <p className="fw-bold">
                         {category?.name || "N/A"}
                       </p>
-                    </Box>
+                    </Box> */}
+                    <ImageCard category={category} onClick={handleClick} />
                   </Grid>
                 ))}
               </Grid>

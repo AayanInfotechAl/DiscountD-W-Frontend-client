@@ -1,4 +1,3 @@
-// features/cart/cartSlice.js or wherever appropriate
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -11,7 +10,6 @@ export const fetchAddress = createAsyncThunk(
           "Content-Type": "application/json",
         },
       });
-      console.log(response, 'response.data');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);

@@ -1,35 +1,28 @@
-import React from 'react';
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// src/components/toastMessage/Toast.jsx
+import { Toaster, toast } from "react-hot-toast";
 
-// Function to display success toast
+const ToastNotification = ({ position = "top-right", duration = 3000 }) => {
+    return (
+        <Toaster position={position} toastOptions={{ duration, }} reverseOrder={false} />
+    );
+};
+
 export const showSuccessToast = (message) => {
     toast.success(message, {
-        position: 'top-right',
-        autoClose: 1000,
-        hideProgressBar: true,
-        style: {
-            backgroundColor: "black",
-            color: "#C8B199",
-        },
+        style: { background: "white", color: "black" },
     });
 };
 
-// Function to display error toast
 export const showErrorToast = (message) => {
     toast.error(message, {
-        position: 'top-right',
-        autoClose: 1000,
-        hideProgressBar: true,
-        style: {
-            backgroundColor: "red",
-            color: "#fff",
-        },
+        style: { background: "#D32F2F", color: "#fff" },
     });
 };
 
-const Toast = () => {
-    return <ToastContainer />;
+export const showCustomMessage = (message) => {
+    toast.error(message, {
+        style: { background: "#D32F2F", color: "#fff" },
+    });
 };
 
-export default Toast;
+export default ToastNotification;

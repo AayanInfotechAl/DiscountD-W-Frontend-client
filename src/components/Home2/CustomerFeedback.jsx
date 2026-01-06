@@ -82,7 +82,7 @@ export const CustomerFeedback = () => {
                   <div className="testimonial-block">
                     <div className="inner-box">
                       <div className="content-box">
-                      <h4 className="name" style={{textTransform: "none"}}>{feedback?.userName || "N/A"}</h4>
+                        <h4 className="name" style={{ textTransform: "none" }}>{feedback?.userName || "N/A"}</h4>
                         <p className="text-muted fw-bold mb-0">{new Date(feedback?.createdAt).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short", })}</p>
                         <div className="text">{feedback?.review.length > 200 ? `${feedback?.review.slice(0, 200)}...` : feedback?.review}</div>
                         <Rating value={feedback?.rating} precision={0.5} readOnly />

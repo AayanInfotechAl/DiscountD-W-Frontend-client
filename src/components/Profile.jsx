@@ -11,19 +11,25 @@ import {
   Snackbar,
   Alert,
   Modal,
+  IconButton,
 } from "@mui/material";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import CloseIcon from '@mui/icons-material/Close';
 
 const Profile = () => {
   const [btnLoader, setBtnLoader] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({
     full_name: "",
     email: "",
     password: "",
+    confirmPassword: "",
     mobile_number: "",
     address: "",
     state: "",
@@ -37,15 +43,79 @@ const Profile = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    if (name === "full_name" && /[^a-zA-Z\s]/.test(value)) return;
+    if (name === "mobile_number" && value.length > 10) return;
+
     setSelectedOptions((prevState) => ({
       ...prevState,
       [name]: value,
     }));
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: "",
-    }));
+
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors };
+      if (name === "email") {
+        if (!value) {
+          newErrors.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(value)) {
+          newErrors.email = "Enter a valid email";
+        } else {
+          delete newErrors.email;
+        }
+      }
+      if (name === "mobile_number") {
+        if (!value) {
+          newErrors.mobile_number = "Mobile number is required";
+        } else if (!/^\d{10}$/.test(value)) {
+          newErrors.mobile_number = "Mobile number must be exactly 10 digits";
+        } else {
+          delete newErrors.mobile_number;
+        }
+      }
+      if (name === "password") {
+        const strongPassword = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+        if (!strongPassword.test(value)) {
+          newErrors.password =
+            "Password must include 1 uppercase, 1 number, 1 special character, and be 8+ characters";
+        } else {
+          delete newErrors.password;
+        }
+        if (selectedOptions.confirmPassword && value !== selectedOptions.confirmPassword) {
+          newErrors.confirmPassword = "Passwords do not match";
+        } else {
+          delete newErrors.confirmPassword;
+        }
+      }
+      if (name === "confirmPassword") {
+        if (value !== selectedOptions.password) {
+          newErrors.confirmPassword = "Passwords do not match";
+        } else {
+          delete newErrors.confirmPassword;
+        }
+      }
+      const formValidNow =
+        selectedOptions.full_name.trim() !== "" &&
+        selectedOptions.email.trim() !== "" &&
+        /\S+@\S+\.\S+/.test(selectedOptions.email) &&
+        selectedOptions.mobile_number.length === 10 &&
+        /^\d{10}$/.test(selectedOptions.mobile_number) &&
+        selectedOptions.address.trim() !== "" &&
+        selectedOptions.state.trim() !== "" &&
+        /^\d{5}$/.test(selectedOptions.zipCode) &&
+        selectedOptions.password !== "" &&
+        !newErrors.email &&
+        !newErrors.mobile_number &&
+        !newErrors.password &&
+        !newErrors.confirmPassword &&
+        !newErrors.zipCode &&
+        !newErrors.full_name &&
+        !newErrors.address &&
+        !newErrors.state;
+
+      setIsFormValid(formValidNow);
+      return newErrors;
+    });
   };
+
 
   const validateForm = () => {
     const newErrors = {};
@@ -80,6 +150,7 @@ const Profile = () => {
         name: selectedOptions.full_name,
         email: selectedOptions.email,
         password: selectedOptions.password,
+        confirmPassword: selectedOptions.confirmPassword,
         mobile: selectedOptions.mobile_number,
         address: selectedOptions.address,
         state: selectedOptions.state,
@@ -121,7 +192,11 @@ const Profile = () => {
   };
 
   const handleOtpChange = (e) => {
-    setOtp(e.target.value);
+    const val = e.target.value;
+    // Allow only numbers, max 6 digits
+    if (/^\d{0,6}$/.test(val)) {
+      setOtp(val);
+    }
   };
 
   const handleOtpSubmit = async () => {
@@ -175,12 +250,7 @@ const Profile = () => {
                   onChange={handleInputChange}
                   variant="outlined"
                   placeholder="Enter Full Name"
-                  sx={{
-                    backgroundColor: "#D0E5F4",
-                    borderRadius: "10px",
-                    border: "none",
-                    "& fieldset": { border: "none" },
-                  }}
+                  sx={{ backgroundColor: "#D0E5F4", borderRadius: "10px", border: "none", "& fieldset": { border: "none" }, }}
                 />
                 {errors.full_name && (
                   <FormHelperText error>{errors.full_name}</FormHelperText>
@@ -196,12 +266,7 @@ const Profile = () => {
                   onChange={handleInputChange}
                   variant="outlined"
                   placeholder="Enter Email"
-                  sx={{
-                    backgroundColor: "#D0E5F4",
-                    borderRadius: "10px",
-                    border: "none",
-                    "& fieldset": { border: "none" },
-                  }}
+                  sx={{ backgroundColor: "#D0E5F4", borderRadius: "10px", border: "none", "& fieldset": { border: "none" }, }}
                 />
                 {errors.email && (
                   <FormHelperText error>{errors.email}</FormHelperText>
@@ -209,27 +274,24 @@ const Profile = () => {
               </FormControl>
             </Box>
             <Box className="mb-3">
-              <InputLabel className="fw-bold text-black mb-2">
-                Password
-              </InputLabel>
+              <InputLabel className="fw-bold text-black mb-2">Password</InputLabel>
               <FormControl fullWidth error={Boolean(errors.password)}>
                 <TextField
                   name="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={selectedOptions.password}
                   onChange={handleInputChange}
-                  variant="outlined"
                   placeholder="Enter Password"
-                  sx={{
-                    backgroundColor: "#D0E5F4",
-                    borderRadius: "10px",
-                    border: "none",
-                    "& fieldset": { border: "none" },
+                  sx={{ backgroundColor: "#D0E5F4", borderRadius: "10px", "& fieldset": { border: "none" } }}
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton onClick={() => setShowPassword(!showPassword)}>
+                        <i className={`fa-solid ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
+                      </IconButton>
+                    ),
                   }}
                 />
-                {errors.password && (
-                  <FormHelperText error>{errors.password}</FormHelperText>
-                )}
+                {errors.password && <FormHelperText error>{errors.password}</FormHelperText>}
               </FormControl>
             </Box>
             <Box className="mb-3">
@@ -243,12 +305,7 @@ const Profile = () => {
                   onChange={handleInputChange}
                   variant="outlined"
                   placeholder="Zip Code"
-                  sx={{
-                    backgroundColor: "#D0E5F4",
-                    borderRadius: "10px",
-                    border: "none",
-                    "& fieldset": { border: "none" },
-                  }}
+                  sx={{ backgroundColor: "#D0E5F4", borderRadius: "10px", border: "none", "& fieldset": { border: "none" }, }}
                 />
                 {errors.zipCode && (
                   <FormHelperText error>{errors.zipCode}</FormHelperText>
@@ -269,12 +326,7 @@ const Profile = () => {
                   onChange={handleInputChange}
                   variant="outlined"
                   placeholder="Mobile No."
-                  sx={{
-                    backgroundColor: "#D0E5F4",
-                    borderRadius: "10px",
-                    border: "none",
-                    "& fieldset": { border: "none" },
-                  }}
+                  sx={{ backgroundColor: "#D0E5F4", borderRadius: "10px", border: "none", "& fieldset": { border: "none" }, }}
                 />
                 {errors.mobile_number && (
                   <FormHelperText error>{errors.mobile_number}</FormHelperText>
@@ -292,15 +344,33 @@ const Profile = () => {
                   onChange={handleInputChange}
                   variant="outlined"
                   placeholder="Enter Address"
-                  sx={{
-                    backgroundColor: "#D0E5F4",
-                    borderRadius: "10px",
-                    border: "none",
-                    "& fieldset": { border: "none" },
-                  }}
+                  sx={{ backgroundColor: "#D0E5F4", borderRadius: "10px", border: "none", "& fieldset": { border: "none" }, }}
                 />
                 {errors.address && (
                   <FormHelperText error>{errors.address}</FormHelperText>
+                )}
+              </FormControl>
+            </Box>
+            <Box className="mb-3">
+              <InputLabel className="fw-bold text-black mb-2">Confirm Password</InputLabel>
+              <FormControl fullWidth error={Boolean(errors.confirmPassword)}>
+                <TextField
+                  name="confirmPassword"
+                  type={showConfirmPassword ? "text" : "password"}
+                  value={selectedOptions.confirmPassword}
+                  onChange={handleInputChange}
+                  placeholder="Confirm Password"
+                  sx={{ backgroundColor: "#D0E5F4", borderRadius: "10px", "& fieldset": { border: "none" } }}
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+                        <i className={`fa-solid ${showConfirmPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
+                      </IconButton>
+                    ),
+                  }}
+                />
+                {errors.confirmPassword && (
+                  <FormHelperText error>{errors.confirmPassword}</FormHelperText>
                 )}
               </FormControl>
             </Box>
@@ -313,59 +383,40 @@ const Profile = () => {
                   onChange={handleInputChange}
                   variant="outlined"
                   placeholder="State"
-                  sx={{
-                    backgroundColor: "#D0E5F4",
-                    borderRadius: "10px",
-                    border: "none",
-                    "& fieldset": { border: "none" },
-                  }}
+                  sx={{ backgroundColor: "#D0E5F4", borderRadius: "10px", border: "none", "& fieldset": { border: "none" }, }}
                 />
                 {errors.state && (
                   <FormHelperText error>{errors.state}</FormHelperText>
                 )}
               </FormControl>
             </Box>
-            <Box sx={{ mt: 5 }}>
-              <Button
-                variant="contained"
-                className="w-100 p-2 fw-bold"
-                onClick={handleSubmit}
-                sx={{ textTransform: "none" }}
-              >
-                {btnLoader ? (
-                  <span>
-                    <i className="fa-solid fa-spinner"></i>
-                    Submitting...
-                  </span>
-                ) : (
-                  "Submit"
-                )}
-              </Button>
-            </Box>
           </Grid>
         </Grid>
       </Container>
-      <Modal
-        open={openOtpModal}
-        onClose={() => setOpenOtpModal(false)}
-        aria-labelledby="otp-modal-title"
-        aria-describedby="otp-modal-description"
-      >
-        <Box
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "white",
-            padding: "20px",
-            borderRadius: "10px",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            width: "500px",
-            height: "300px",
-            textAlign: "center",
-          }}
+      <Container className="mt-4 d-flex justify-content-center align-items-center mb-4">
+        <Button
+          variant="contained"
+          className="p-3 fw-bold"
+          onClick={handleSubmit}
+          sx={{ textTransform: "none", width: "300px" }}
+          disabled={!isFormValid || btnLoader}
         >
+          {btnLoader ? (
+            <span><i className="fa-solid fa-spinner fa-spin"></i> Submitting...</span>
+          ) : (
+            "Submit"
+          )}
+        </Button>
+      </Container>
+      <Modal open={openOtpModal} onClose={() => setOpenOtpModal(false)} aria-labelledby="otp-modal-title" aria-describedby="otp-modal-description">
+        <Box style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: "white", padding: "20px", borderRadius: "10px", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", width: "500px", height: "300px", textAlign: "center", }}>
+          <IconButton
+            aria-label="close"
+            onClick={() => setOpenOtpModal(false)}
+            sx={{ position: "absolute", top: 8, right: 8, color: "gray", }}
+          >
+            <CloseIcon />
+          </IconButton>
           <h4 className="mb-3">Enter OTP</h4>
           <p className="mb-3">Email: {submittedEmail}</p>
           <FormControl fullWidth>
@@ -376,21 +427,11 @@ const Profile = () => {
               onChange={handleOtpChange}
               variant="outlined"
               placeholder="Enter OTP"
-              sx={{
-                backgroundColor: "#D0E5F4",
-                borderRadius: "10px",
-                border: "none",
-                "& fieldset": { border: "none" },
-              }}
+              sx={{ backgroundColor: "#D0E5F4", borderRadius: "10px", border: "none", "& fieldset": { border: "none" }, }}
             />
           </FormControl>
           <Box sx={{ mt: 3 }}>
-            <Button
-              variant="contained"
-              className="w-100"
-              sx={{ textTransform: "none" }}
-              onClick={handleOtpSubmit}
-            >
+            <Button disabled={otp.trim() === ""} variant="contained" className="w-100" sx={{ textTransform: "none" }} onClick={handleOtpSubmit}>
               Submit OTP
             </Button>
           </Box>
@@ -406,7 +447,7 @@ const Profile = () => {
           {snackbarMessage}
         </Alert>
       </Snackbar>
-    </div>
+    </div >
   );
 };
 

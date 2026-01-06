@@ -15,8 +15,11 @@ import {
   DialogActions,
   Alert,
   DialogContent,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from '@mui/icons-material/Edit';
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import banner from "../../assets/doors.png";
@@ -38,20 +41,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import No_Image_Available from "../../assets/No_Image_Available.jpg";
 import { fetchAddress } from "../redux/slices/addressSlice";
-
-// const pickupAddressOptions = [
-//   {
-//     id: "option3",
-//     title: "Door and Window",
-//     description: [
-//       "Discount Door and Window",
-//       "5450 Complex St.",
-//       "Unit 301",
-//       "San Diego, CA 92123",
-//     ],
-//     price: "$440",
-//   },
-// ];
+import Shipping from "./Shipping.jsx";
 
 const Cart = () => {
   const [shippingMethod, setShippingMethod] = useState("delivery");
@@ -67,7 +57,14 @@ const Cart = () => {
     zipCode: "",
     address: "",
   });
+  const [shippingData, setShippingData] = useState();
+  const [editShippingData, setEditShippingData] = useState({});
+  const [openShippingDialog, setOpenShippingDialog] = useState(false);
   const [productQuantities, setProductQuantities] = useState({});
+  const [sameAsBilling, setSameAsBilling] = useState(false);
+  const [sameAsBillingLoading, setSameAsBillingLoading] = useState(false);
+  const [isEditingShipping, setIsEditingShipping] = useState(false);
+
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.cart);
 
@@ -80,7 +77,7 @@ const Cart = () => {
 
   const pickupAddressOptions = getAddressDetails.map((item, index) => ({
     id: item._id || `option-${index}`,
-    title: "Door and Window", // or item.name if available
+    title: "Door and Window",
     description: [
       `Business Name: Discount Door and Window`,
       `Street: ${item.street}`,
@@ -181,6 +178,7 @@ const Cart = () => {
         address: customer.address || "",
       });
       setIsEditingBilling(true);
+      setIsEditingShipping(true);
     }
   };
 
@@ -198,9 +196,14 @@ const Cart = () => {
 
   const handleDeleteConfirm = async () => {
     if (productToDelete) {
-      await dispatch(deleteProduct(productToDelete)).unwrap();
-      dispatch(fetchAllProducts());
-      setProductToDelete(null);
+      try {
+        await dispatch(deleteProduct(productToDelete)).unwrap();
+        dispatch(fetchAllProducts()); // if needed to refetch
+      } catch (err) {
+        console.error("Delete failed:", err);
+      } finally {
+        setProductToDelete(null);
+      }
     }
   };
 
@@ -223,9 +226,7 @@ const Cart = () => {
       });
       return;
     }
-    dispatch(
-      updateUserBillingAddress({ userId: userLoggedInId, billingDetails })
-    )
+    dispatch(updateUserBillingAddress({ userId: userLoggedInId, billingDetails }))
       .unwrap()
       .then((response) => {
         toast.success(response.message || "Customer updated successfully!", {
@@ -242,6 +243,7 @@ const Cart = () => {
         dispatch(fetchAllProducts())
           .unwrap()
           .then(() => {
+            setIsEditingShipping(false);
             toast.success("Products updated successfully!", {
               position: "top-right",
               autoClose: 3000,
@@ -274,6 +276,7 @@ const Cart = () => {
       address: "",
     });
     setIsEditingBilling(false);
+    setIsEditingShipping(false);
   };
 
   const handleCheckOut = async (e) => {
@@ -297,6 +300,7 @@ const Cart = () => {
         alert("Please select a pickup address before proceeding.");
         return;
       }
+
       const selectedPickupOption = pickupAddressOptions.find(
         (option) => option.id === selectedOption
       );
@@ -309,6 +313,21 @@ const Cart = () => {
         description: selectedPickupOption.description.join(", "),
       };
     } else if (shippingMethod === "delivery") {
+      if (!shippingData || shippingData.length === 0) {
+        alert("Please add a shipping address before proceeding.");
+        setOpenShippingDialog(true);
+        return;
+      }
+
+      shippingAddress = {
+        name: customerDetails.name || "N/A",
+        mobile: customerDetails.mobile || "N/A",
+        email: customerDetails.email || "N/A",
+        address: customerDetails.address || "N/A",
+        state: customerDetails.state || "N/A",
+        zipCode: customerDetails.zipCode || "N/A",
+      };
+
       if (!selectedOption || !customerDetails) {
         alert("Please select a delivery address before proceeding.");
         return;
@@ -351,15 +370,109 @@ const Cart = () => {
       const result = await stripe.redirectToCheckout({
         sessionId: session.sessionId,
       });
-      if (result.error) {
-        console.log(result.error, "error-----");
-      }
     } catch (error) {
       alert("Checkout failed: " + error.message);
     } finally {
       setIsProcessing(false);
     }
   };
+
+  const handleNewShippingAddress = () => {
+    setEditShippingData(null);
+    setOpenShippingDialog(true);
+  };
+
+  const handleSameAsBillingChange = async (e) => {
+    const checked = e.target.checked;
+    setSameAsBilling(checked);
+    if (!checked) {
+      setShippingData(null);
+      return;
+    }
+    if (checked && shippingMethod === "delivery" && customerDetails) {
+      setSameAsBillingLoading(true);
+      const billingShippingData = {
+        name: customerDetails?.name || "",
+        mobile: customerDetails?.mobile || "",
+        state: customerDetails?.state || "",
+        zipCode: customerDetails?.zipCode || "",
+        address: customerDetails?.address || "",
+        country: customerDetails?.country_name || "",
+      };
+      try {
+        const alanAuthToken = Cookies.get("alanAuthToken");
+        const response = await axios.post(
+          "https://www.discountdoorandwindow.com/api/address/ship-address",
+          billingShippingData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${alanAuthToken}`,
+            },
+          }
+        );
+        setShippingData(billingShippingData);
+        toast.success(response?.data?.message || 'Shipping address set successfully', {
+          position: "top-right",
+          autoClose: 2000,
+        });
+        fetchShippingAddressDetails();
+      } catch (error) {
+        console.error(error);
+        alert("Failed to set shipping address");
+        setSameAsBilling(false);
+      } finally {
+        setSameAsBillingLoading(false);
+      }
+    }
+  };
+
+  const fetchShippingAddressDetails = async () => {
+    try {
+      const response = await axios.get('https://www.discountdoorandwindow.com/api/address/ship-address', {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${alanAuthToken}`,
+        },
+      });
+      console.log(response?.data?.data, 'shipping address response');
+      setShippingData(response?.data?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchShippingAddressDetails();
+  }, [alanAuthToken]);
+
+  // const handleEditShippingData = (item) => {
+  //   setEditShippingData(item)
+  //   setOpenShippingDialog(true)
+  // }
+
+  // const handleDeleteShippingAddress = async () => {
+  //   const confirmDelete = window.confirm("Are you sure you want to delete the shipping address?");
+  //   if (!confirmDelete) return;
+  //   const token = Cookies.get("alanAuthToken");
+  //   try {
+  //     const response = await axios.delete(
+  //       "https://www.discountdoorandwindow.com/api/address/ship-address",
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  //     toast.success(response?.data?.message || 'delete success fully', {
+  //       position: "top-right",
+  //       autoClose: 2000,
+  //     });
+  //     setShippingData(null);
+  //   } catch (error) {
+  //     alert("Failed to delete shipping address");
+  //   }
+  // };
 
   return (
     <>
@@ -474,62 +587,75 @@ const Cart = () => {
               <div className="row gx-3 gy-3">
                 {alanAuthToken && userLoggedInId && (
                   <>
-                    <div className="col-12 col-md-4">
-                      <div className={`p-2 border border-1 rounded ${!isEditingBilling ? "bg-light" : ""}`}>
-                        <h6 className="fw-bold">Billing</h6>
-                        <form className="form" disabled={!isEditingBilling} style={{ outline: "none", boxShadow: "none", pointerEvents: isEditingBilling ? "auto" : "none", }}>
-                          <div className="mb-3">
-                            <input type="text" name="name" placeholder="First Name" value={billingDetails.name} onChange={handleBillingChange} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
-                          </div>
-                          <div className="mb-3">
-                            <input type="text" name="mobile" placeholder="Mobile Number" value={billingDetails.mobile} onChange={handleBillingChange} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
-                          </div>
-                          <div className="mb-3">
-                            <input type="text" name="state" placeholder="State" value={billingDetails.state} onChange={handleBillingChange} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
-                          </div>
-                          <div className="mb-3">
-                            <input type="text" name="zipCode" placeholder="Zip Code" value={billingDetails.zipCode} onChange={handleBillingChange} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
-                          </div>
-                          <div className="mb-3">
-                            <textarea name="address" placeholder="Address" value={billingDetails.address} onChange={handleBillingChange} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
-                          </div>
-                          <div className="d-flex justify-content-between align-items-center">
-                            <button type="submit" className="btn btn-primary" onClick={handleUpdateBillingDetails}>
-                              Update
-                            </button>
-                            <button type="submit" className="btn btn-primary" onClick={handleCancelBillingDetails}>
-                              Cancel
-                            </button>
-                          </div>
-                        </form>
+                    {isEditingShipping && (
+                      <div className="col-12 col-md-4">
+                        <div className={`p-2 border border-1 rounded ${!isEditingBilling ? "bg-light" : ""}`} >
+                          <h6 className="fw-bold">Billing Details Edit</h6>
+                          <form className="form" disabled={!isEditingBilling} style={{ outline: "none", boxShadow: "none", pointerEvents: isEditingBilling ? "auto" : "none", }}>
+                            <div className="mb-3">
+                              <input type="text" name="name" placeholder="First Name" value={billingDetails.name} onChange={handleBillingChange} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
+                            </div>
+                            <div className="mb-3">
+                              <input type="text" name="mobile" placeholder="Mobile Number" value={billingDetails.mobile} onChange={handleBillingChange} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
+                            </div>
+                            <div className="mb-3">
+                              <input type="text" name="state" placeholder="State" value={billingDetails.state} onChange={handleBillingChange} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
+                            </div>
+                            <div className="mb-3">
+                              <input type="number" name="zipCode" placeholder="Zip Code" value={billingDetails.zipCode} onChange={(e) => {
+                                const value = e.target.value;
+                                if (value.length <= 5) {
+                                  handleBillingChange(e);
+                                }
+                              }} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
+                            </div>
+                            <div className="mb-3">
+                              <textarea name="address" placeholder="Address" value={billingDetails.address} onChange={handleBillingChange} className="form-control" style={{ outline: "none", boxShadow: "none" }} />
+                            </div>
+                            <div className="d-flex justify-content-between align-items-center">
+                              <button type="submit" className="btn btn-primary" onClick={handleUpdateBillingDetails}>
+                                Update
+                              </button>
+                              <button type="button" className="btn btn-primary" onClick={handleCancelBillingDetails}>
+                                Cancel
+                              </button>
+                            </div>
+                          </form>
+                        </div>
                       </div>
-                    </div>
+                    )}
                     <div className="col-12 col-md-4">
                       <div className="p-2 border border-1 rounded">
                         <h6 className="fw-bold">Shipping Method</h6>
-                        <div className="d-flex align-items-center mb-3">
-                          <div className="form-check me-4">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked={shippingMethod === "delivery"} onChange={() => setShippingMethod("delivery")} />
-                            <label className="form-check-label" for="flexRadioDefault1">
-                              Delivery
-                            </label>
+                        <div className="d-flex justify-content-between align-items-center">
+                          <div className="d-flex align-items-center mb-3">
+                            <div className="form-check me-4">
+                              <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked={shippingMethod === "delivery"} onChange={() => setShippingMethod("delivery")} />
+                              <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                Delivery
+                              </label>
+                            </div>
+                            <div className="form-check">
+                              <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked={shippingMethod === "pickup"} onChange={() => setShippingMethod("pickup")} />
+                              <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                Pickup
+                              </label>
+                            </div>
                           </div>
-                          <div className="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked={shippingMethod === "pickup"} onChange={() => setShippingMethod("pickup")} />
-                            <label className="form-check-label" for="flexRadioDefault2">
-                              Pickup
-                            </label>
-                          </div>
+                          {/* <Button variant="contained" size="small" onClick={handleNewShippingAddress} sx={{ textTransform: 'none', backgroundColor: '#1976d2' }}>
+                            Add Shipping Address
+                          </Button> */}
                         </div>
+
                         {shippingMethod === "pickup" && (
                           <div>
-                            {pickupAddressOptions?.map((option) => (
-                              <div key={option.id} className="p-2 border border-1 rounded mb-2 d-flex align-items-start">
-                                <input type="radio" id={option.id} name="pickupOption" value={option.id} className="me-2" checked={selectedOption === option.id} onChange={handleChange} />
-                                <label htmlFor={option.id} className="w-100 d-flex justify-content-between">
+                            {pickupAddressOptions?.map((option, index) => (
+                              <div key={index} className="p-2 border border-1 rounded mb-2 d-flex align-items-start">
+                                <input type="radio" id={option?.id} name="pickupOption" value={option?.id} className="me-2" checked={selectedOption === option?.id} onChange={handleChange} />
+                                <label htmlFor={option?.id} className="w-100 d-flex justify-content-between">
                                   <div>
-                                    <h6 className="fw-bold">{option.title}</h6>
-                                    {option.description.map((line, index) => (
+                                    <h6 className="fw-bold">{option?.title}</h6>
+                                    {option?.description?.map((line, index) => (
                                       <p key={index} className="mb-0">
                                         &nbsp;-&nbsp;{line}
                                       </p>
@@ -543,49 +669,66 @@ const Cart = () => {
                         {shippingMethod === "delivery" && customerDetails && (
                           <div className="p-2 border border-1 rounded mb-2 d-flex align-items-start">
                             <input type="radio" id="option3" name="pickupOption" value={customerDetails?._id} checked={selectedOption === customerDetails._id} onChange={() => setSelectedOption(customerDetails._id)} className="me-2" />
-                            <label
-                              htmlFor="option3"
-                              className="w-100 d-flex justify-content-between"
-                            >
+                            <label htmlFor="option3" className="w-100 d-flex justify-content-between">
                               <div>
-                                <h6 className="fw-bold">
-                                  &nbsp;&nbsp;{customerDetails?.name || "n/a"}
-                                </h6>
-                                <p className="mb-0">
-                                  &nbsp;-&nbsp;
-                                  {customerDetails?.email || "N/A"}
-                                </p>
-                                <p className="mb-0">
-                                  &nbsp;-&nbsp;
-                                  {customerDetails?.mobile || "N/A"}
-                                </p>
-                                <p className="mb-0">
-                                  &nbsp;-&nbsp;
-                                  {customerDetails?.state || "N/A"}
-                                </p>
-                                <p className="mb-0">
-                                  &nbsp;-&nbsp;
-                                  {customerDetails?.address || "N/A"}
-                                </p>
-                                <p className="mb-0">
-                                  &nbsp;-&nbsp;
-                                  {customerDetails?.zipCode || "N/A"}
-                                </p>
+                                <h6 className="fw-bold">Billing Address</h6>
+                                <p className="mb-0">Name : {customerDetails?.name || "N/A"}</p>
+                                <p className="mb-0">Email : {customerDetails?.email || "N/A"}</p>
+                                <p className="mb-0">Mobile : {customerDetails?.mobile || "N/A"}</p>
+                                <p className="mb-0">Country : {customerDetails?.country_name || "N/A"}</p>
+                                <p className="mb-0">State : {customerDetails?.state || "N/A"}</p>
+                                <p className="mb-0">Address : {customerDetails?.address || "N/A"}</p>
+                                <p className="mb-0">Zip Code : {customerDetails?.zipCode || "N/A"}</p>
                               </div>
-                              <IconButton
-                                onClick={handleEditCustomerAddress}
-                                variant="outlined"
-                                sx={{ height: "40px", width: "40px" }}
-                              >
+                              <IconButton onClick={handleEditCustomerAddress} variant="outlined" sx={{ height: "40px", width: "40px" }}>
                                 <ModeIcon color="primary" />
                               </IconButton>
                             </label>
                           </div>
                         )}
+                        {shippingMethod === "delivery" && (
+                          <><FormControlLabel
+                            control={<Box position="relative" display="inline-flex" alignItems="center">
+                              <Checkbox
+                                checked={sameAsBilling}
+                                onChange={handleSameAsBillingChange}
+                                disabled={sameAsBillingLoading}
+                                sx={{
+                                  color: "#FC5F03",
+                                  "&.Mui-checked": { color: "#FC5F03" },
+                                }} />
+                              {sameAsBillingLoading && (
+                                <CircularProgress size={20} sx={{ position: "absolute", left: 0, top: 0, }} />
+                              )}
+                            </Box>}
+                            label="Shipping address same as billing address" /><div className="mt-3">
+                              {shippingData || sameAsBilling ? (
+                                <Box mt={2} p={2} border="1px solid #ccc" borderRadius={2}>
+                                  <Box display="flex" justifyContent="space-between" alignItems="center">
+                                    <h6 className="fw-bold">Shipping Address</h6>
+                                    {/* <Box>
+                                      <IconButton onClick={() => handleEditShippingData(shippingData)} size="small">
+                                        <EditIcon fontSize="small" />
+                                      </IconButton>
+                                      <IconButton onClick={handleDeleteShippingAddress} size="small" color="error">
+                                        <DeleteIcon fontSize="small" />
+                                      </IconButton>
+                                    </Box> */}
+                                  </Box>
+                                  <Typography><strong>Address:</strong> {shippingData?.address}</Typography>
+                                  <Typography><strong>Mobile:</strong> {shippingData?.mobile}</Typography>
+                                  <Typography><strong>State:</strong> {shippingData?.state}</Typography>
+                                  <Typography><strong>Country:</strong> {shippingData?.country_name}</Typography>
+                                  <Typography><strong>Zip:</strong> {shippingData?.zipCode}</Typography>
+                                </Box>
+                              ) : null}
+                            </div></>
+                        )}
                       </div>
                     </div>
                   </>
                 )}
+
                 <div className="col-12 col-md-4 mt-3">
                   <div className="p-2 border border-1 rounded">
                     <h6 className="fw-bold">Product Details</h6>
@@ -644,6 +787,19 @@ const Cart = () => {
                 </Box>
               )}
             </Container>
+            <Shipping
+              open={openShippingDialog}
+              onClose={() => {
+                setOpenShippingDialog(false);
+                setSameAsBilling(false);
+                setEditShippingData(null);
+              }}
+              editShippingData={editShippingData}
+              onSuccess={() => {
+                fetchShippingAddressDetails();
+                setOpenShippingDialog(false);
+              }}
+            />
           </div>
         </>
       )}

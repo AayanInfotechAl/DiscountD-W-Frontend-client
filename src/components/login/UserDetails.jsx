@@ -175,7 +175,7 @@ export const UserDetails = () => {
                 <button
                   type="button"
                   className="btn-close"
-                  onClick={() => setIsOpenModel(false)} 
+                  onClick={() => setIsOpenModel(false)}
                 ></button>
               </div>
               <div className="modal-body">

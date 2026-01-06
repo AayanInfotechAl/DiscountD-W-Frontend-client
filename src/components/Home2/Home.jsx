@@ -4,15 +4,11 @@ import "../../styles/Home.scss";
 import banner1 from "../../assets/main-slider/banner-1.jpg";
 import banner2 from "../../assets/main-slider/banner-2.jpg";
 import banner3 from "../../assets/main-slider/banner-3.jpg";
-import door from "../../assets/main-slider/Untitleddesign.mp4";
-import hardware from "../../assets/main-slider/hardware.mp4";
 import No_Image_Available from "../../assets/No_Image_Available.jpg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { CustomerFeedback } from "./CustomerFeedback";
-import { LatestBlogs } from "./LatestBlogs";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import Loader from "../../loader/Loader";
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import Backdrop from "@mui/material/Backdrop";
@@ -28,6 +24,7 @@ export const Home = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isAndroid, setIsAndroid] = useState(false);
   const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
 
   const fetchExploreCategories = async () => {
@@ -102,12 +99,13 @@ export const Home = () => {
   }, []);
 
   const handleClick = (item) => {
+    // const encodedName = encodeURIComponent(item?.name?.trim());
     if (!item?.isSubCategory) {
       navigate(`/allsubproducts/${item?._id}`, {
-        state: { categorydetails: item },
+        state: { categorydetails: item, categoryName: item?.name },
       });
     } else {
-      navigate(`/categories/${item?._id}`);
+      navigate(`/categories/${item?._id}`, { state: { categoryName: item?.name } });
     }
   };
 
@@ -150,12 +148,12 @@ export const Home = () => {
         {
           <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
-              {slides.map((_, index) => (
+              {slides?.map((_, index) => (
                 <button key={index} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={index} className={index === 0 ? "active" : ""} aria-current={index === 0 ? "true" : undefined} aria-label={`Slide ${index + 1}`}></button>
               ))}
             </div>
             <div className="carousel-inner">
-              {slides.map((slide, index) => (
+              {slides?.map((slide, index) => (
                 <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
                   <img src={slide.image} className="d-block w-100" alt="Slide" style={{ filter: "brightness(45%)" }} />
                   <div className="carousel-caption d-flex flex-column h-100 align-items-center justify-content-center bottom-0 text-center">
@@ -233,7 +231,7 @@ export const Home = () => {
         </Box>
         <Container maxWidth="xl" sx={{ display: "flex", justifyContent: "center" }}>
           <Box sx={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center", alignItems: "center", }} className="button-container">
-            {buttonData.map((button, index) => (
+            {buttonData?.map((button, index) => (
               <Link to={button?.urlPath} key={index} className="button-link">
                 <div className="custom-button p-3 text-white">
                   <div>{button?.icon}</div>
@@ -268,7 +266,7 @@ export const Home = () => {
                         <div className="inner-box">
                           <div className="image-box">
                             <figure className="image">
-                              <img src={item?.images[0] || No_Image_Available} alt="" />
+                              <img src={item?.images[0] || No_Image_Available} onError={(e) => { e.target.onerror = null; e.target.src = "https://i.gifer.com/origin/0e/0ef02e4dedc32b87c71799c133cef346_w200.gif"; }} loading="lazy" alt="" />
                             </figure>
                           </div>
                           <div className="lower-content text-center">

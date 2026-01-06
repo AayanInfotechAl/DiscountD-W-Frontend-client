@@ -1,23 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Container,
   Typography,
   Box,
-  Snackbar,
-  SnackbarContent,
-  IconButton,
   TextField,
   Rating,
   Skeleton,
 } from "@mui/material";
-import Grid from "@mui/material/Grid2";
 import banner from "../../assets/doors.png";
 import card_img1 from "../../assets/window.png";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../../loader/Loader";
-// import WindowContent from "./WindowContent";
 import No_Image_Available from "../../assets/No_Image_Available.jpg";
 import LinearProgress from "@mui/material/LinearProgress";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -28,7 +23,6 @@ import {
 } from "../redux/slices/addToCartSlice";
 import Cookies from "js-cookie";
 import useSessionId from "../../hooks/useSessionId";
-import CloseIcon from "@mui/icons-material/Close";
 import { showErrorToast, showSuccessToast } from '../toastMessage/Toast';
 import ImageZoom from "./ImageZoom";
 
@@ -46,8 +40,6 @@ const Window = () => {
   const [selectedOptions, setSelectedOptions] = useState({});
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
-
-  // const [selectedImage, setSelectedImage] = useState(card_img1);
   const [customDimensions, setCustomDimensions] = useState({
     height: "",
     width: "",
@@ -55,8 +47,6 @@ const Window = () => {
 
   const [currentProductDetails, setCurrentProductDetails] = useState({});
   const [currentProductDimensions, setCurrentProductDimensions] = useState(null);
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [customPrice, setCustomPrice] = useState(null);
   const [gardenWindowUpdatedPrice, setGardenWindowUpdatedPrice] = useState(null);
   const [formError, setFormError] = useState(false);
@@ -66,12 +56,14 @@ const Window = () => {
   const [dimensionError, setDimensionError] = useState(null);
   const [showAllReviews, setShowAllReviews] = useState(false);
   const [loadedImages, setLoadedImages] = useState({});
+  const [showFull, setShowFull] = useState(false);
 
   const token = Cookies.get("alanAuthToken");
   const location = useLocation();
   const { product_id } = useParams();
   const dispatch = useDispatch();
   const sessionId = useSessionId();
+  const navigate = useNavigate();
   const userLoggedInId = Cookies.get("userLoggedInId");
 
   const formatPath = (path) => {
@@ -101,7 +93,10 @@ const Window = () => {
     try {
       const response = await axios.get(`https://www.discountdoorandwindow.com/api/dims/ProductID/${product_id}`);
       if (response?.data?.success) {
-        setSelectedImage(response.data.data?.product?.images[0]);
+        const firstImage = response.data.data?.product?.images?.[0] || card_img1;
+        setDefaultImage(firstImage);
+        setSelectedImage(firstImage);
+        // setSelectedImage(response.data.data?.product?.images[0]);
         setCurrentProductDetails(response.data.data);
         setCurrentProductDimensions(response?.data?.data?.Dimensions);
       }
@@ -132,11 +127,11 @@ const Window = () => {
         setDimensionError(null);
         try {
           const response = await axios.post(
-            "https://www.discountdoorandwindow.com/api/prodFormula/calculateCustomHeightWidth",
+            "https://www.discountdoorandwindow.com/api/formula-config/calculate-price",
             {
               width: parseFloat(width),
               height: parseFloat(height),
-              Product_id: product_id,
+              productId: product_id,
               Price: currentProductDetails?.product?.price || 0,
             }
           );
@@ -174,7 +169,7 @@ const Window = () => {
         const payload = {
           width: parseFloat(width),
           height: parseFloat(height),
-          Product_id: product_id,
+          productId: product_id,
           Price: currentProductDetails?.product?.price || 0,
         };
 
@@ -190,16 +185,7 @@ const Window = () => {
           }
         }
         try {
-          const response = await axios.post(
-            "https://www.discountdoorandwindow.com/api/prodFormula/calculateCustomHeightWidth", payload
-            // {
-            //   width: parseFloat(width),
-            //   height: parseFloat(height),
-            //   Product_id: product_id,
-            //   Price: currentProductDetails?.product?.price || 0,
-            //   TemperingOption: name,
-            //   Grid: name
-            // }
+          const response = await axios.post('https://www.discountdoorandwindow.com/api/formula-config/calculate-price', payload
           );
           if (response?.data?.success === false) {
             setDimensionError(response?.data?.message || "Invalid dimensions.");
@@ -246,12 +232,9 @@ const Window = () => {
     }
   };
 
-  const [selectedImage, setSelectedImage] = useState(currentProductDetails?.images?.[0] || card_img1);
+  const [defaultImage, setDefaultImage] = useState(null); 
+  const [selectedImage, setSelectedImage] = useState(card_img1);
   const [hoveredImage, setHoveredImage] = useState(null);
-
-  const handleChangeImage = (imageSrc) => {
-    setSelectedImage(imageSrc);
-  };
 
   const calculatePrice = () => {
     if (!currentProductDetails?.product) return "0.00";
@@ -287,8 +270,7 @@ const Window = () => {
   const handleToProceedAddToCart = async () => {
     setBtnLoader(true);
     if (!userLoggedInId && !sessionId) {
-      setSnackbarMessage("Session ID is required for guest checkout.");
-      setOpenSnackbar(true);
+      showErrorToast("Session ID is required for guest checkout.");
       setBtnLoader(false);
       return;
     }
@@ -307,28 +289,29 @@ const Window = () => {
     };
     try {
       const response = await dispatch(addtocartproduct(productDetails)).unwrap();
-      if (response?.success === false && response?.status === 404) {
-        setSnackbarMessage(response?.message || "Failed to add item to cart.")
+      const isSuccess = response?.success;
+      const responseMessage = response?.message || "Item added to cart successfully!";
+      console.log(responseMessage, 'responseMessage')
+      if (!isSuccess || response?.status === 404) {
+        showSuccessToast(responseMessage);
       } else {
         const responseMessage = response?.message || "Item added to cart successfully!";
-        setSnackbarMessage(responseMessage);
-        setOpenSnackbar(true);
+        showSuccessToast(responseMessage);
         dispatch(fetchAllProducts());
         setSelectedOptions({});
         setCustomDimensions({ height: "", width: "" });
         setCustomPrice(null);
+        navigate("/cart");
       }
     } catch (error) {
-      const errorMessage = error?.response?.data?.message;
-      setSnackbarMessage(errorMessage);
+      const errorMessage =
+        typeof error === "string"
+          ? error
+          : error?.response?.data?.message || error?.message || "Something went wrong";
+      showErrorToast(errorMessage);
     } finally {
-      setOpenSnackbar(true);
       setBtnLoader(false);
     }
-  };
-
-  const handleCloseSnackbar = () => {
-    setOpenSnackbar(false);
   };
 
   const maxReviewLength = 300;
@@ -398,7 +381,7 @@ const Window = () => {
       : 0;
 
   const ratingCounts = [0, 0, 0, 0, 0]; // Index 0 = 1-star, Index 4 = 5-star
-  reviews.forEach((r) => {
+  reviews?.forEach((r) => {
     const i = Math.floor(r.rating) - 1;
     if (i >= 0 && i < 5) ratingCounts[i]++;
   });
@@ -406,11 +389,11 @@ const Window = () => {
   const total = reviews.length;
   const visibleReviews = showAllReviews ? currentProductDetails?.product_reviews : currentProductDetails?.product_reviews?.slice(0, 5);
 
+  const description = currentProductDetails?.product?.Description || "N/A";
+  const shortDescription = description.slice(0, 300) + (description.length > 300 ? "..." : "");
+
   return (
     <div className="doors-container px-3">
-      <Snackbar open={openSnackbar} autoHideDuration={3000} onClose={handleCloseSnackbar} anchorOrigin={{ vertical: "top", horizontal: "center" }}>
-        <SnackbarContent message={snackbarMessage} style={{ backgroundColor: "#4caf50", color: "#fff", }} action={<IconButton size="small" color="inherit" onClick={handleCloseSnackbar}    >      <CloseIcon fontSize="small" />    </IconButton>} />
-      </Snackbar>
       {loading ? (
         <Loader />
       ) : (
@@ -422,7 +405,7 @@ const Window = () => {
               </Typography>
               <Typography variant="h6" className="text-black fw-bold">
                 <span>
-                  Home {">"} {formatPath(location.pathname)}
+                  Home {"/"} {formatPath(location.pathname)} {"/"} {currentProductDetails?.product?.name}
                 </span>
               </Typography>
             </Box>
@@ -439,34 +422,58 @@ const Window = () => {
                     sx={{
                       display: "flex",
                       overflowX: "auto",
-                      gap: 2,
-                      marginTop: "15px",
-                      scrollbarWidth: "thin", '&::-webkit-scrollbar': { height: '6px', },
-                      '&::-webkit-scrollbar-thumb': { backgroundColor: '#ccc', borderRadius: '4px', },
-                      '&::-webkit-scrollbar-track': { backgroundColor: 'transparent', },
+                      gap: 3,
+                      marginTop: "25px",
+                      scrollbarWidth: "thin",
+                      '&::-webkit-scrollbar': { height: '6px' },
+                      '&::-webkit-scrollbar-thumb': { backgroundColor: '#ccc', borderRadius: '4px' },
+                      '&::-webkit-scrollbar-track': { backgroundColor: 'transparent' },
                     }}
+                    onMouseLeave={() => setHoveredImage(null)}
                   >
-                    {currentProductDetails?.images?.length > 0 ? (
-                      currentProductDetails.images.map((img, index) => (
-                        <Box key={index} sx={{ minWidth: 100, flexShrink: 0 }} onClick={() => setSelectedImage(img)} onMouseEnter={() => setHoveredImage(img)} onMouseLeave={() => setHoveredImage(null)}>
-                          {!loadedImages[img] && (
-                            <Skeleton variant="rectangular" width={100} height={100} sx={{ borderRadius: "5px" }} />
-                          )}
-                          <img src={img} alt={`Product Image ${index + 1}`} style={{
-                            display: loadedImages[img] ? "block" : "none",
-                            width: "100px", height: "100px", borderRadius: "5px", objectFit: "contain", cursor: "pointer",
-                            border: selectedImage === img && !hoveredImage ? "2px solid #1976d2" : "2px solid transparent", transition: "border 0.2s ease",
-                          }}
-                            onLoad={() => setLoadedImages((prev) => ({ ...prev, [img]: true }))}
-                            onError={(e) => { e.target.onerror = null; e.target.src = No_Image_Available; setLoadedImages((prev) => ({ ...prev, [img]: true })); }}
-                          />
+                    {(() => {
+                      const images = (currentProductDetails?.images || []).filter((img) => img && img !== "null");
+                      const defaultImg = defaultImage;
+                      const allImages = defaultImg
+                        ? [defaultImg, ...images.filter((img) => img !== defaultImg)]
+                        : images;
+                      return allImages?.length > 0 ? (
+                        allImages?.map((img, index) => (
+                          <Box key={index} sx={{ minWidth: 100, flexShrink: 0, textAlign: 'center' }} onClick={() => setSelectedImage(img)} onMouseEnter={() => setHoveredImage(img)} onMouseLeave={() => setHoveredImage(null)}>
+                            {!loadedImages[img] && (
+                              <Skeleton variant="rectangular" width={100} height={100} sx={{ borderRadius: "5px" }} />
+                            )}
+                            <img
+                              src={img}
+                              alt={`Product Image ${index + 1}`}
+                              style={{
+                                display: loadedImages[img] ? "block" : "none",
+                                width: "100px",
+                                height: "100px",
+                                borderRadius: "5px",
+                                objectFit: "contain",
+                                cursor: "pointer",
+                                border: selectedImage === img && !hoveredImage ? "2px solid #1976d2" : "2px solid transparent",
+                                transition: "border 0.2s ease",
+                              }}
+                              onLoad={() => setLoadedImages((prev) => ({ ...prev, [img]: true }))}
+                              onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = No_Image_Available;
+                                setLoadedImages((prev) => ({ ...prev, [img]: true }));
+                              }}
+                            />
+                            <Typography variant="caption" sx={{ display: "block", mt: 0.5 }}>
+                              {index + 1}
+                            </Typography>
+                          </Box>
+                        ))
+                      ) : (
+                        <Box sx={{ minWidth: 100 }}>
+                          <img src={No_Image_Available} alt="No image available" style={{ width: "100px", height: "100px", borderRadius: "5px", objectFit: "contain", }} />
                         </Box>
-                      ))
-                    ) : (
-                      <Box sx={{ minWidth: 100 }}>
-                        <img src={No_Image_Available} alt="No image available" style={{ width: "100px", height: "100px", borderRadius: "5px", objectFit: "contain", }} />
-                      </Box>
-                    )}
+                      );
+                    })()}
                   </Box>
                   <Typography variant="h5" className="fw-bold mt-3">
                     {currentProductDetails?.product?.name ? currentProductDetails.product?.name.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()) : "N/A"}
@@ -541,15 +548,14 @@ const Window = () => {
                             {category.charAt(0).toUpperCase() + category.slice(1).replace(/([a-z])([A-Z])/g, "$1 $2")}
                           </option>
                           {currentProductDimensions[category].map((item) => (
-                            <option key={item._id} value={item.value}>
+                            <option key={item?._id} value={item?.value}>
                               {item[category]}
                             </option>
                           ))}
                         </select>
-                        {category === "installation" && (
+                        {(category === "installation" || category === "DoorInstallationAvailability") && (
                           <Typography variant="body2" className="mb-2 text-danger fw-bold">
-                            Installation for San Diego. For installation in
-                            other areas, please contact us.
+                            Installation for San Diego. For installation in other areas, please contact us.
                           </Typography>
                         )}
                       </div>
@@ -578,14 +584,12 @@ const Window = () => {
                 <div className="col-12 col-md-8">
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: cleanDescription(
-                        currentProductDetails?.product?.Description || "N/A"
-                      ),
+                      __html: cleanDescription(showFull ? description : shortDescription),
                     }}
                   />
                 </div>
                 <div className="col-12 col-md-4 mt-3 mt-md-0">
-                  {imageSrcList.map((src, index) => (
+                  {(showFull ? imageSrcList : imageSrcList?.slice(0, 1))?.map((src, index) => (
                     <img
                       key={index}
                       src={src}
@@ -596,6 +600,17 @@ const Window = () => {
                   ))}
                 </div>
               </div>
+              <Box sx={{ textAlign: 'center' }}>
+                {(description.length > 300 || (imageSrcList?.length || 0) > 1) && (
+                  <Button
+                    variant="text"
+                    onClick={() => setShowFull(!showFull)}
+                    sx={{ mt: 2, fontWeight: "bold", textTransform: "none" }}
+                  >
+                    {showFull ? "See Less" : "See More"}
+                  </Button>
+                )}
+              </Box>
             </Box>
 
             {total > 0 && (
@@ -690,4 +705,5 @@ const Window = () => {
     </div>
   );
 };
+
 export default Window;

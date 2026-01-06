@@ -44,11 +44,7 @@ export const PrivacyPolicy = () => {
                     <Divider />
                   </Box>
                   <Box mb={3}>
-                    <Typography
-                      dangerouslySetInnerHTML={{
-                        __html: privacyPolicyContent?.content,
-                      }}
-                    />
+                    <Typography dangerouslySetInnerHTML={{ __html: privacyPolicyContent?.content, }} />
                   </Box>
                 </>
               ) : (

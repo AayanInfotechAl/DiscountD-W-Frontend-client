@@ -95,28 +95,12 @@ export const OrderTrack = () => {
 
   return (
     <div>
-      <Container
-        sx={{
-          mt: { xs: 2, md: 5 },
-          mb: { xs: 3, md: 4 },
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <Container sx={{ mt: { xs: 2, md: 5 }, mb: { xs: 3, md: 4 }, display: "flex", justifyContent: "center", alignItems: "center", }}>
         <Box sx={{ p: { xs: 2, md: 4 } }}>
-          <Typography
-            variant="h4"
-            align="center"
-            sx={{ fontWeight: "bold", color: "black", fontSize: { xs: "1.8rem", md: "2.2rem" } }}
-          >
+          <Typography variant="h4" align="center" sx={{ fontWeight: "bold", color: "black", fontSize: { xs: "1.8rem", md: "2.2rem" } }}>
             Track Your Order
           </Typography>
-          <Typography
-            variant="body1"
-            align="center"
-            sx={{ mt: 1, color: "black", fontSize: { xs: "0.9rem", md: "1rem" } }}
-          >
+          <Typography variant="body1" align="center" sx={{ mt: 1, color: "black", fontSize: { xs: "0.9rem", md: "1rem" } }}>
             For tracking the order, you need to enter your Order ID.
           </Typography>
           <Box sx={{ mt: 3 }}>
@@ -141,24 +125,11 @@ export const OrderTrack = () => {
             {success && <Typography color="green" className="my-2">{success}</Typography>}
           </Box>
           <Box sx={{ textAlign: "center", mt: 3 }}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              sx={{ textTransform: "none", fontWeight: "bold" }}
-              onClick={handleOrderTrack}
-              className="me-3"
-            >
+            <Button variant="contained" color="primary" size="large" sx={{ textTransform: "none", fontWeight: "bold" }} onClick={handleOrderTrack} className="me-3">
               {loading ? "Tracking your order..." : "Track Order"}
             </Button>
             {orderStatus && (
-              <Button
-                variant="outlined"
-                color="primary"
-                size="large"
-                sx={{ textTransform: "none", fontWeight: "bold" }}
-                onClick={handleReset}
-              >
+              <Button variant="outlined" color="primary" size="large" sx={{ textTransform: "none", fontWeight: "bold" }} onClick={handleReset}>
                 {loading ? "Tracking your order..." : "Reset"}
               </Button>
             )}
@@ -173,10 +144,7 @@ export const OrderTrack = () => {
             <Typography variant="h4" align="center" className="fw-bold text-black">
               Order ID: {orderStatus?.order_id || "N/A"}
             </Typography>
-            <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-              className="mt-2"
-            >
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }} className="mt-2">
               <Typography align="center" className="fw-bold me-4 text-black">
                 <Typography component="span" color="text.secondary">
                   Order date:

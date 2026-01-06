@@ -137,7 +137,7 @@ export const WishList = () => {
                       position: "relative",
                       backgroundColor: "#f1f1f1",
                       width: "100%",
-                      cursor:"pointer"
+                      cursor: "pointer"
                     }}
                     className="rounded-3 p-2"
                     onClick={() => handleClick(wishlist?.product_id?._id)}
@@ -156,8 +156,8 @@ export const WishList = () => {
                     <p className="fw-bold mb-0">
                       {wishlist?.product_id?.name
                         ? wishlist?.product_id?.name
-                            .replace(/_/g, " ")
-                            .replace(/\b\w/g, (char) => char.toUpperCase())
+                          .replace(/_/g, " ")
+                          .replace(/\b\w/g, (char) => char.toUpperCase())
                         : "N/A"}
                       &nbsp;&nbsp;
                       <IconButton

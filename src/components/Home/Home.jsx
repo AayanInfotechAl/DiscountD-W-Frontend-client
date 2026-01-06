@@ -144,48 +144,48 @@ export const Home = () => {
         </Grid> */}
 
         {<div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-indicators">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to={index}
-            className={index === 0 ? "active" : ""}
-            aria-current={index === 0 ? "true" : undefined}
-            aria-label={`Slide ${index + 1}`}
-          ></button>
-        ))}
-      </div>
-      <div className="carousel-inner">
-        {slides.map((slide, index) => (
-          <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
-            <img src={slide.image} className="d-block w-100" alt="Slide" />
-            <div className="carousel-caption d-flex flex-column h-100 align-items-start justify-content-center bottom-0 text-start">
-              <h2 className="bg-dark bg-opacity-50 py-2 px-1 heading-slider-main">Upgrade Your Home With <br /> The Right Windows, Doors, <br />And More—Affordably.</h2>
-              {/* <p className="bg-dark bg-opacity-50 py-2 px-4">{slide.description}</p> */}
-              <Link to="/get-estimation">
-              <Button
-                variant="contained"
-                color="primary"
-                className="estimate-button"
-              >
-                Get Estimates
-              </Button>
-            </Link>
-            </div>
+          <div className="carousel-indicators">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to={index}
+                className={index === 0 ? "active" : ""}
+                aria-current={index === 0 ? "true" : undefined}
+                aria-label={`Slide ${index + 1}`}
+              ></button>
+            ))}
           </div>
-        ))}
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>}
+          <div className="carousel-inner">
+            {slides.map((slide, index) => (
+              <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
+                <img src={slide.image} className="d-block w-100" alt="Slide" />
+                <div className="carousel-caption d-flex flex-column h-100 align-items-start justify-content-center bottom-0 text-start">
+                  <h2 className="bg-dark bg-opacity-50 py-2 px-1 heading-slider-main">Upgrade Your Home With <br /> The Right Windows, Doors, <br />And More—Affordably.</h2>
+                  {/* <p className="bg-dark bg-opacity-50 py-2 px-4">{slide.description}</p> */}
+                  <Link to="/get-estimation">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className="estimate-button"
+                    >
+                      Get Estimates
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>}
 
         <Box className="marquee-container">
           <div className="marquee-content marquee-home" ref={marqueeRef}>
